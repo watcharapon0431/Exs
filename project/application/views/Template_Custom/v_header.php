@@ -1,13 +1,3 @@
-<?php
-/*
-	* v_header
-	* Storage CSS path link and CSS custom template
-	* @input -
-	* @output -
-	* @author Chutipong
-	* @Create Date 2562-08-30
-	*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . "assets/img/system.png"; ?>">
-    <title>Exam</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url() . "assets/img/documents.png"; ?>">
+    <title>Exam System</title>
     <!-- Bootstrap Core CSS -->
     <link type="text/css" href="<?php echo base_url() . "assets/"; ?>bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() . "assets/"; ?>plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />

@@ -14,7 +14,6 @@
         width: 140px;
         height: 45px;
     }
-
 </style>
 
 <body class="fix-header">
@@ -29,21 +28,52 @@
                 <div class="top-left-part">
                     <!-- Logo -->
                     <a class="logo" href="#">
-                        <img src="<?php echo base_url() . "assets/"; ?>img/admin-logo.png" alt="home" class="light-logo" />
+                        <img src="<?php echo base_url() . "assets/"; ?>img/documents.png" alt="home" class="light-logo" width="18%" />
                         </b>
-                        <span class="hidden-xs"><img src="<?php echo base_url() . "assets/"; ?>img/admin-text.png" alt="home" class="light-logo" /></span>
+                        <span class="hidden-xs"><img src="<?php echo base_url() . "assets/"; ?>img/Exs-text.png" alt="home" class="light-logo" /></span>
                     </a>
                 </div>
-                <div id="login">
-                    <a href="<?php echo site_url(); ?>/Exs_controller/index" class="waves-effect">
-                        <button type="button" class="btn btn-info btn-lg"><i class="fa fa-sign-in"></i>&emsp;เข้าสู่ระบบ</button>
-                    </a>
+                <div>
+                    <ul class="nav navbar-top-links navbar-right pull-right">
+                        <li><a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs"><i class="ti-close ti-menu"></i></a></li>
+                    </ul>
                 </div>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)">
+                            <b class="hidden-xs"><?php echo $_SESSION['case_job'] . " : "; ?></b>
+                            <b class="hidden-xs" id="name_topbar"><?php echo $_SESSION['case_fname'] . ' ' . $_SESSION['case_lname']; ?></b>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="u-text">
+                                        <h5 id="name_topbar_menu"><?php echo $_SESSION['case_fname'] . ' ' . $_SESSION['case_lname']; ?></h5>
+                                        <h6><?php echo $_SESSION['case_job']; ?></h6>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a onclick="load_profile_edit();"><i class="mdi mdi-account-card-details"></i>&emsp;แก้ไขข้อมูลส่วนตัว</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a onclick="load_reset_password();"><i class="mdi mdi-lock"></i>&emsp;เปลี่ยนรหัสผ่าน</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="<?php echo site_url(); ?>/Exs_controller/index"><i class="mdi mdi-power"></i>&emsp;ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
 
-    
+
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav">
             <div class="sidebar-head">
@@ -52,31 +82,21 @@
             <ul class="nav" id="side-menu">
                 <li class="devider"></li>
                 <li>
-                    <a href="<?php echo site_url(); ?>/Exs_controller/index " class="waves-effect">
+                    <a href="<?php echo site_url(); ?>/Question_manage_controller/load_v_question_manage" class="waves-effect">
                         <span class="hide-menu">
-                            <i class="mdi mdi-home"></i>&emsp;หน้าหลัก
+                            <i class="mdi mdi-clipboard-text"></i>&emsp;จัดการแบบฝึกหัด
                             <span class="fa arrow"></span>
-                            <span class="label label-rouded label-inverse pull-right">2</span>
+                            <span class="label label-rouded label-inverse pull-right"></span>
                         </span>
                     </a>
                 </li>
                 <li class="devider"></li>
                 <li>
-                    <a href="<?php echo site_url(); ?>/Exs_controller/index" class="waves-effect">
+                    <a href="<?php echo site_url(); ?>/Exs_controller/load_v_check_ans" class="waves-effect">
                         <span class="hide-menu">
-                            <i class="mdi mdi-clipboard-text"></i>&emsp;เเจ้งเรื่องร้องเรียน
+                            <i class="mdi mdi-clipboard-text"></i>&emsp;ตรวจแบบฝึกหัด
                             <span class="fa arrow"></span>
-                            <span class="label label-rouded label-inverse pull-right">4</span>
-                        </span>
-                    </a>
-                </li>
-                <li class="devider"></li>
-                <li>
-                    <a href="<?php echo site_url(); ?>/Exs_controller/index" class="waves-effect">
-                        <span class="hide-menu">
-                            <i class="mdi mdi-clipboard-text"></i>&emsp;ติดตามเรื่องร้องเรียน
-                            <span class="fa arrow"></span>
-                            <span class="label label-rouded label-inverse pull-right">4</span>
+                            <span class="label label-rouded label-inverse pull-right"></span>
                         </span>
                     </a>
                 </li>

@@ -4,5 +4,40 @@ require_once(dirname(__FILE__) . "/Da_user.php");
 
 class M_user extends Da_user
 {
+    function check_user_login()
+    {
+        $sql = "SELECT *
+				FROM `user`
+                WHERE user_username=? AND user_password=?";
+        return $this->db->query($sql, array($this->user_username, $this->user_password));
+    }
 
+    function get_by_username(){
+        $sql = "SELECT *
+				FROM `user`
+                WHERE user_username=? AND user_password=?";
+        return $this->db->query($sql, array($this->user_username, $this->user_password));
+    }
+
+    function get_fname_by_username(){
+        $sql = "SELECT user_fname
+				FROM `user`
+                WHERE user_username=? AND user_password=?";
+        return $this->db->query($sql, array($this->user_username, $this->user_password));
+    }
+
+    function get_lname_by_username(){
+        $sql = "SELECT user_lname
+				FROM `user`
+                WHERE user_username=? AND user_password=?";
+        return $this->db->query($sql, array($this->user_username, $this->user_password));
+    }
+
+    function get_position_by_username(){
+        $sql = "SELECT position_name
+				FROM `user`
+                LEFT JOIN position ON position.position_id = user.user_position_id
+                WHERE user_username=? AND user_password=?";
+        return $this->db->query($sql, array($this->user_username, $this->user_password));
+    }
 }
