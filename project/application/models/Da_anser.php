@@ -6,6 +6,7 @@ class Da_anser extends CI_Model {
 	public $ans_description;
 	public $ans_score;
 	public $ans_q_id;
+	public $ans_status;
 	public $ans_user_id;
 
 	function __construct() {
@@ -13,9 +14,9 @@ class Da_anser extends CI_Model {
 	}
 
 	function insert() {
-		$sql = "INSERT INTO `anser` (ans_description, ans_score, ans_q_id, ans_user_id )
+		$sql = "INSERT INTO `anser` (ans_description, ans_score, ans_status, ans_q_id, ans_user_id )
 				VALUES (?, ?, ?, ?)";
-		$this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_q_id, $this->ans_user_id ));
+		$this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_q_id, $this->ans_status, $this->ans_user_id ));
 		$this->last_insert_id = $this->db->insert_id();
 	}
 	
@@ -23,7 +24,7 @@ class Da_anser extends CI_Model {
 		$sql = "UPDATE `anser`
 				SET	ans_description=?, ans_score=?, ans_q_id=?, ans_user_id =?
 				WHERE ans_id=?";	
-		$this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_q_id, $this->ans_user_id ));
+		$this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_q_id, $this->ans_status, $this->ans_user_id ));
 	}
 	
 	function delete() {
@@ -37,6 +38,6 @@ class Da_anser extends CI_Model {
 		$sql = "SELECT *
 				FROM `anser`
 				WHERE ans_id=?";
-		return $this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_q_id, $this->ans_user_id ));
+		return $this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_q_id, $this->ans_status, $this->ans_user_id ));
 	}
 }
