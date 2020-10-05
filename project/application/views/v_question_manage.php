@@ -4,193 +4,18 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <!-- ----------------------- Start panel heading ----------------------- -->
-                    <div class="panel-heading">
-                        <h2 class="box-title"><i class="fa fa-list-alt" style="font-size:40px;"></i>&emsp;จัดการแบบฝึกหัด</h2>
-                    </div>
-                    <!-- ----------------------- End panel heading ----------------------- -->
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-wrapper collapse in" aria-expanded="true">
-                        <!-- ----------------------- Start panel body ----------------------- -->
-                        <div class="panel-body">
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="col-md-6">
-                                <h2><i class="mdi mdi-email-outline" style="font-size:30px;"></i>&emsp;รายการเรื่องร้องเรียน</h2>
+                                <h2><i class="fa fa-list-alt" style="font-size:40px;"></i>&emsp;จัดการแบบฝึกหัด</h2>
                             </div>
                             <div class="col-md-6" align="right">
                                 <br>
-
                                 <!-- --------------------------------------------- start report insert button ------------------------------------------------------ -->
-                                <a id="insert-btn" href="<?php echo site_url(); ?>/Case_report_controller_ajax/load_v_create_report" class="btn btn-info" type="button" class="model_img img-responsive">
-                                    <span class="btn-label"><i class="mdi mdi-plus-circle "></i></span>เพิ่มเรื่องร้องเรียน
+                                <a id="insert-btn" href="<?php echo site_url(); ?>/Question_manage_controller/load_v_create_question" class="btn btn-info" type="button" class="model_img img-responsive">
+                                    <span class="btn-label"><i class="mdi mdi-plus-circle "></i></span>เพิ่มแบบฝึกหัด
                                 </a>
                                 <!-- ---------------------------------------------- end report insert button ------------------------------------------------------- -->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-wrapper collapse in">
-                        <div class="panel-body">
-                            <div class="col-md-4">
-
-                                <!-- --------------------------------------------- start report channel select search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <label class="col-md-12">ช่องทางการติดต่อ : </label>
-                                    <div class="col-md-12">
-                                        <select class="form-control" id="channel_id">
-                                            <option value="" selected>- เลือกช่องทางของแหล่งข้อมูลที่ต้องการ -</option>
-                                            <?php
-                                            foreach ($rs_channel as $row) {
-                                            ?>
-                                                <option value="<?php echo $row->channel_id; ?>"><?php echo $row->name; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ---------------------------------------------- end report channel select search ------------------------------------------------------- -->
-
-                            </div>
-                            <div class="col-md-4">
-
-                                <!-- --------------------------------------------- start report type select search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <label class="col-md-12">ประเภทเรื่องร้องเรียน : </label>
-                                    <div class="col-md-12">
-                                        <select class="form-control" id="category_id">
-                                            <option value="" selected>- เลือกประเภทเรื่องร้องเรียนที่ต้องการ -</option>
-                                            <?php
-                                            foreach ($rs_category as $row) {
-                                            ?>
-                                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->name; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ---------------------------------------------- end report type select search ------------------------------------------------------- -->
-
-                            </div>
-                            <div class="col-md-4">
-
-                                <!-- --------------------------------------------- start report status select search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <label class="col-md-12">สถานะ : </label>
-                                    <div class="col-md-12">
-                                        <select class="form-control" id="case_status_id">
-                                            <option value="" selected>- เลือกสถานะที่ต้องการ -</option>
-                                            <option value="1">ฉบับร่าง</option>
-                                            <option value="2">ระหว่างการดำเนินการ</option>
-                                            <option value="3">ได้ข้อยุติ</option>
-                                            <option value="4">ไม่สามารถดำเนินการได้</option>
-                                            <option value="5">รอเจ้าหน้าที่รับเรื่อง</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ---------------------------------------------- end report status select search ------------------------------------------------------- -->
-
-                            </div>
-                            <div class="col-md-4">
-
-                                <!-- --------------------------------------------- start report position select search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <br>
-                                    <label class="col-md-12">ผู้ดำเนินการ : </label>
-                                    <div class="col-md-12">
-                                        <select class="form-control" id="case_position_id">
-                                            <option value="" selected>- เลือกสถานะที่ต้องการ -</option>
-                                            <option value="0">เจ้าหน้าที่ Contact Center</option>
-                                            <option value="1">เจ้าหน้าที่ ศอท. (สํานักงาน)</option>
-                                            <option value="2">เจ้าหน้าที่ ศอท. (ภาคสนาม)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- ---------------------------------------------- end report position select search ------------------------------------------------------- -->
-
-                            </div>
-                            <div class="col-md-4">
-                                <br>
-
-                                <!-- --------------------------------------------- start date_begin input search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <label class="col-md-12">วันที่เริ่มต้น : </label>
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="date_begin" placeholder="วัน/เดือน/ปี"> <span class="input-group-addon"><i class="icon-calender"></i></span>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ---------------------------------------------- end date_begin input search ------------------------------------------------------- -->
-
-                            </div>
-
-                            <div class="col-md-4">
-                                <br>
-
-                                <!-- --------------------------------------------- start date_end input search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <label class="col-md-12">วันที่เสร็จสิ้น : </label>
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="date_end" placeholder="วัน/เดือน/ปี"> <span class="input-group-addon"><i class="icon-calender"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ----------------------------------------------- end date_end input search -------------------------------------------------------- -->
-
-                            </div>
-                            <div class="col-md-4">
-                                <br>
-
-                                <!-- --------------------------------------------- start keyword input search ------------------------------------------------------ -->
-                                <div class="form-group">
-                                    <label class="col-md-12">คำค้นหา : </label>
-                                    <div class="col-md-12">
-                                        <input type="text" id="keyword" class="form-control" placeholder="คำต้น ชื่อเรื่อง รายละเอียด">
-                                    </div>
-                                </div>
-                                <!-- --------------------------------------------- end keyword input search ------------------------------------------------------ -->
-
-                            </div>
-
-
-
-                            <div class="col-md-8" align="right">
-                                <br><br>
-
-                                <!-- --------------------------------------------- start search button ------------------------------------------------------ -->
-                                <button id="btn_search" class="btn btn-primary" type="button">
-                                    <span class="btn-label"><i class="fa fa-search"></i></span>ค้นหา
-                                </button>
-                                <!-- ---------------------------------------------- end search button ------------------------------------------------------- -->
-
                             </div>
                         </div>
                     </div>
@@ -198,9 +23,7 @@
             </div>
             <div class="col-md-12">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0">เลือกรายการที่ต้องการลบ</h3>
-                    <button class="btn btn-block btn-danger" style="width:80px;height:35px;" type="button" id="btn_multiple_delete"><span class="btn-label "><i class="fa fa-minus-circle"></i></span>ลบ</button>
-                    <br>
+
                     <div class="table-responsive">
                         <div class="dataTables_wrapper no-footer">
 
@@ -208,18 +31,12 @@
                             <table id="report_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;">
-                                            <input type="checkbox" id="check_all">
-                                        </th>
-                                        <th style="text-align:center;">เลขที่รับเรื่อง</th>
-                                        <th style="text-align:center;">เรื่อง</th>
-                                        <th style="text-align:center;">ผู้รับเรื่อง</th>
-                                        <th style="text-align:left;">ลงวันที่</th>
-                                        <th style="text-align:left;">วันที่แก้ไขล่าสุด&emsp;
-                                            <span id="sorting_date"><i id="icon_sorting_date" class="mdi mdi-arrow-down-bold"></i></span>
-                                            <input type="hidden" id="type_sorting_date" value="DESC">
-                                        </th>
-                                        <th style="text-align:center;">สถานะ</th>
+                                        <th style="text-align:center; width: 10%"">ลำดับ</th>
+                                        <th style=" text-align:center; width: 40%">เรื่อง</th>
+                                        <th style="text-align:center; width: 15%"">วิชา</th>
+                                        <th style=" text-align:center; width: 15%"">สถานะ</th>
+                                        <th style="text-align:center; width: 20%"">ดำเนินการ</th>
+                                        <th style=" text-align:center;">สถานะ</th>
                                         <th style="text-align:center;"></th>
                                     </tr>
                                 </thead>
@@ -230,7 +47,7 @@
                             <!-- ---------------------------------------------- end report data table ------------------------------------------------------- -->
 
                             <!-- --------------------------------------------- start pagination ------------------------------------------------------ -->
-                            <div class="col-md-12">
+                            <div class=" col-md-12">
                                 <div class="col-md-4" align="left">
                                     <p id="count_of_master_data"></p>
                                 </div>
@@ -249,3 +66,190 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(() => {
+
+        // When Click toggle sorting
+        $("#sorting_date").click(function() {
+            if ($("#type_sorting_date").val() == "ASC") {
+                $("#icon_sorting_date").attr('class', 'mdi mdi-arrow-down-bold');
+                $("#type_sorting_date").val("DESC")
+                report_get_table_by_page_number_search($("#current_page").val())
+            } else {
+                $("#icon_sorting_date").attr('class', 'mdi mdi-arrow-up-bold');
+                $("#type_sorting_date").val("ASC")
+                report_get_table_by_page_number_search($("#current_page").val())
+            }
+        })
+
+        // call report_get_table function
+        report_get_table_by_page_number_search(1)
+
+        // start when click at row on table for display v_detail_report
+        $('#report_table tbody').on('click', 'td', function() {
+            // declare when click element on row table
+            let check_col = $(this).index(),
+                check_row = $(this).parent().index();
+            // if condition when dont click on btn-delete id button 
+            if (check_col != 0 && check_col != 7) {
+                // set row  is colunm index 2 for sent display v_detail_report
+                let $row = $(this).closest("tr"),
+                    $tds = $row.find("td:nth-child(2)")
+                // declare code is null string
+                let code = ""
+
+                // start loop set code value
+                $.each($tds, function() {
+                    code = $(this).text()
+                })
+                code = code.trim()
+                // end loop set code value
+
+                // let url = "<?php echo site_url() . "/Case_report_controller_ajax/report_get_detail/" ?>"
+                // window.location.href = url + code
+            }
+        })
+        // end when click at row on table for display v_detail_report
+
+        $("#btn_search").on("click", () => {
+            report_get_table_by_page_number_search(1)
+        })
+    })
+
+    function report_get_table_by_page_number_search(page_number) {
+        let table = $("#report_table tbody")
+        let page = $("#page_option")
+
+        table.empty()
+        page.empty()
+
+        let count_of_master_data = $("#count_of_master_data")
+        count_of_master_data.empty()
+
+        $('#current_page').val(page_number)
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url() . "/Question_manage_controller/question_data_table/" ?>",
+            data: {},
+            dataType: 'JSON',
+            async: false,
+            success: function(json_data) {
+                let count_data = 0
+
+                if (json_data.rs_question.length > 0) {
+                    // start loop foreach display case's data on table
+                    json_data.rs_question.forEach(function(element) {
+                        table.append($('<tr>')
+                            .append($('<td>').append("<center>" + element.q_seq + "</center>"))
+                            .append($('<td>').append(element.q_name))
+                            .append($('<td>').append("<center>" + element.ca_name + "</center>"))
+                            .append($('<td>').append("<center>" + element.q_status + "</center>"))
+                            .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
+                        )
+                        count_data++
+                    })
+                    // end loop foreach display case's data on table
+                    // console.log(table);
+                    //--------------------------------  start declare count number pagination -------------------------------------------------
+                    let count_section_page = $("#section_page").val()
+                    let current_page = $("#current_page").val()
+                    let max_page = json_data.count_question / 10
+                    if (json_data.count_question % 10 != 0) {
+                        max_page++
+                    }
+                    if ((count_section_page * 10) % 10 != 0) {
+                        count_section_page = Math.floor(count_section_page)
+                        count_section_page++
+                        $("#section_page").val(count_section_page)
+                    }
+                    max_page = Math.floor(max_page)
+                    let count_loop = null
+                    if (max_page >= 10) {
+                        count_loop = (10 * count_section_page) - 9
+                    } else if (max_page < 10) {
+                        count_loop = 1
+                    }
+                    //---------------------------------  end declare count number pagination --------------------------------------------------
+
+                    page.append('<a style="color:black; " href="javascript:report_search_first_page()">&emsp;< |&emsp;</a>')
+                    page.append('<a style="color:black; " href="javascript:report_search_page_previous()">&emsp;<&emsp;</a>')
+                    $("#count_of_master_data").text("แสดง " + count_data + " ข้อมูล จาก " + json_data.count_question + " ข้อมูล")
+                    for (count = count_loop; count <= max_page; count++) {
+                        if (count <= count_section_page * 10) {
+                            if (current_page == count) {
+                                page.append('<a style="color:#0000FF; font-weight:bold" href="javascript:report_get_table_by_page_number_search(' + count + ')">&emsp;' + count + '&emsp;</a>')
+                            } else {
+                                page.append('<a style="color:black; " href="javascript:report_get_table_by_page_number_search(' + count + ')">&emsp;' + count + '&emsp;</a>')
+                            }
+
+                        }
+                    }
+                    page.append('<a style="color:black; " href="javascript:report_search_page_next(' + max_page + ')">&emsp;>&emsp;</a>')
+                    page.append('<a style="color:black; " href="javascript:report_search_last_page(' + max_page + ')">&emsp;| >&emsp;</a>')
+                } else {
+                    let text_no_data = '<center><b><p>ไม่มีรายการแบบทดสอบ</p></b></center>'
+                    table.append($('<tr>').append('<td colspan="8">' + text_no_data + '</td>'))
+                }
+                // end if condition when have case's data equal or more than 1 data
+            }
+        })
+    }
+
+    function report_get_table_by_page_number_search(page_number) {
+        let table = $("#report_table tbody")
+        let page = $("#page_option")
+
+        table.empty()
+        page.empty()
+
+        let count_of_master_data = $("#count_of_master_data")
+        count_of_master_data.empty()
+
+        $('#current_page').val(page_number)
+
+        // set type_sorting_date 
+        let type_sorting_date = $("#type_sorting_date").val()
+
+        let user_login = '<?php echo $this->session->case_code; ?>'
+        let user_login_position = null
+    }
+
+    function report_search_page_previous() {
+        let current_page = $('#current_page').val()
+        if (current_page > 1) {
+            if (current_page % 10 == 1) {
+                let new_section_page = parseInt($('#section_page').val()) - 1
+                $('#section_page').val(new_section_page)
+            }
+            page_temp = parseInt($('#current_page').val()) - 1
+            report_get_table_by_page_number_search(page_temp)
+        }
+    }
+
+    function report_search_page_next(max_count) {
+        let current_page = $('#current_page').val()
+        if (current_page < max_count) {
+            if (current_page % 10 == 0 && current_page != max_count) {
+                let new_section_page = parseInt($('#section_page').val()) + 1
+                $('#section_page').val(new_section_page)
+            }
+            page_temp = parseInt($('#current_page').val()) + 1
+            report_get_table_by_page_number_search(page_temp)
+        }
+    }
+
+    function report_search_first_page() {
+        $('#section_page').val(1)
+        report_get_table_by_page_number_search(1)
+    }
+
+    function report_search_last_page(max_count) {
+        let change_section_page_value = max_count
+        if (max_count >= 10) {
+            change_section_page_value = (max_count / 10)
+        }
+        $('#section_page').val(change_section_page_value)
+        report_get_table_by_page_number_search(max_count)
+    }
+</script>

@@ -37,6 +37,6 @@ class Da_sup_question extends CI_Model {
 		$sql = "SELECT *
 				FROM `sup_question`
 				WHERE sq_id=?";
-		return $this->db->query($sql, array($this->sq_description, $this->sq_seq, $this->sq_score, $this->sq_q_id ));
+		return $this->db->query($sql, array($this->sq_id));
 	}
 }

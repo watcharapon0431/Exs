@@ -54,14 +54,14 @@
                                     </div>
                                 </div>
                             </li>
-                            <li role="separator" class="divider"></li>
+                            <!-- <li role="separator" class="divider"></li>
                             <li>
-                                <a onclick="load_profile_edit();"><i class="mdi mdi-account-card-details"></i>&emsp;แก้ไขข้อมูลส่วนตัว</a>
+                                <a onclick=""><i class="mdi mdi-account-card-details"></i>&emsp;แก้ไขข้อมูลส่วนตัว</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a onclick="load_reset_password();"><i class="mdi mdi-lock"></i>&emsp;เปลี่ยนรหัสผ่าน</a>
-                            </li>
+                                <a onclick=""><i class="mdi mdi-lock"></i>&emsp;เปลี่ยนรหัสผ่าน</a>
+                            </li> -->
                             <li role="separator" class="divider"></li>
                             <li>
                                 <a href="<?php echo site_url(); ?>/Exs_controller/index"><i class="mdi mdi-power"></i>&emsp;ออกจากระบบ</a>

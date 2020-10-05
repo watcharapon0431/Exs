@@ -37,6 +37,6 @@ class Da_score extends CI_Model {
 		$sql = "SELECT *
 				FROM `score`
 				WHERE sc_id=?";
-		return $this->db->query($sql, array($this->sc_score, $this->sc_q_id, $this->sc_sq_id, $this->sc_user_id));
+		return $this->db->query($sql, array($this->sc_id));
 	}
 }
