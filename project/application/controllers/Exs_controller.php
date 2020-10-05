@@ -17,16 +17,14 @@ class Exs_controller extends CI_Controller
 
 	function output($body = '', $data = '')
 	{
-		// Start if condition when you not login before login
-		// Load header 
-		// $this->load->view('Template_Custom/v_header');
+		// Load header
+		$this->load->view('Template_Custom/v_header');
 		// Load Footer
-		// $this->load->view('Template_Custom/v_footer');
+		$this->load->view('Template_Custom/v_footer');
 		// Load Topbar
-		// $this->load->view('Template_Custom/v_topbar_reset');
+		$this->load->view('Template_Custom/v_topbar_home');
 		// Load view and data is sent to view 
 		$this->load->view($body, $data);
-		// End if condition when you not login before login
 	}
 
 
@@ -42,11 +40,10 @@ class Exs_controller extends CI_Controller
 		$this->load_v_home();
 	}
 
-	
+
 	function load_v_home()
 	{
 		// to view v_home 
 		$this->output('v_home');
 	}
-
 }
