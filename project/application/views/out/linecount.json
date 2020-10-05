@@ -1,0 +1,665 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "d:\\Program Files\\xampp\\htdocs\\home\\se_project_team3\\Clicknext\\application\\views",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2019-12-09 18:08:04",
+            "filesum": 108,
+            "codesum": 17270,
+            "commentsum": 6181,
+            "blanksum": 1473,
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "Case_Report\\email.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\.github\\ISSUE_TEMPLATE.md"
+                },
+                {
+                    "blank": 2,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\.github\\PULL_REQUEST_TEMPLATE.md"
+                },
+                {
+                    "blank": 7,
+                    "code": 11,
+                    "comment": 23,
+                    "filename": "Case_Report\\PHPMailer-master\\.phan\\config.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\.php_cs"
+                },
+                {
+                    "blank": 9,
+                    "code": 37,
+                    "comment": 1,
+                    "filename": "Case_Report\\PHPMailer-master\\COMMITMENT"
+                },
+                {
+                    "blank": 0,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\composer.json"
+                },
+                {
+                    "blank": 16,
+                    "code": 82,
+                    "comment": 46,
+                    "filename": "Case_Report\\PHPMailer-master\\get_oauth_token.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 4,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-af.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-am.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ar.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-az.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ba.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-be.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-bg.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ca.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 12,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ch.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 4,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-cs.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 12,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-da.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 4,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-de.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-el.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-eo.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-es.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-et.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 7,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-fa.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 14,
+                    "comment": 12,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-fi.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 12,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-fo.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 8,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-fr.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-gl.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-he.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-hi.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-hr.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-hu.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-id.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 7,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-it.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 13,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ja.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ka.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ko.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-lt.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-lv.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-mg.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ms.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 4,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-nb.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-nl.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 4,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-pl.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-pt.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 8,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-pt_br.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ro.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-rs.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-ru.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-sk.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-sl.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-sr.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-sv.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-tl.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 9,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-tr.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 7,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-uk.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 6,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-vi.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 7,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-zh.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 7,
+                    "filename": "Case_Report\\PHPMailer-master\\language\\phpmailer.lang-zh_cn.php"
+                },
+                {
+                    "blank": 53,
+                    "code": 245,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\LICENSE"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\phpdoc.dist.xml"
+                },
+                {
+                    "blank": 40,
+                    "code": 92,
+                    "comment": 40,
+                    "filename": "Case_Report\\PHPMailer-master\\README.md"
+                },
+                {
+                    "blank": 14,
+                    "code": 14,
+                    "comment": 12,
+                    "filename": "Case_Report\\PHPMailer-master\\SECURITY.md"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 28,
+                    "filename": "Case_Report\\PHPMailer-master\\src\\Exception.php"
+                },
+                {
+                    "blank": 14,
+                    "code": 45,
+                    "comment": 79,
+                    "filename": "Case_Report\\PHPMailer-master\\src\\OAuth.php"
+                },
+                {
+                    "blank": 336,
+                    "code": 2385,
+                    "comment": 1706,
+                    "filename": "Case_Report\\PHPMailer-master\\src\\PHPMailer.php"
+                },
+                {
+                    "blank": 46,
+                    "code": 164,
+                    "comment": 215,
+                    "filename": "Case_Report\\PHPMailer-master\\src\\POP3.php"
+                },
+                {
+                    "blank": 120,
+                    "code": 647,
+                    "comment": 555,
+                    "filename": "Case_Report\\PHPMailer-master\\src\\SMTP.php"
+                },
+                {
+                    "blank": 13,
+                    "code": 38,
+                    "comment": 3,
+                    "filename": "Case_Report\\PHPMailer-master\\UPGRADING.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "Case_Report\\PHPMailer-master\\VERSION"
+                },
+                {
+                    "blank": 156,
+                    "code": 1135,
+                    "comment": 245,
+                    "filename": "Case_Report\\v_compare_count_case_type.php"
+                },
+                {
+                    "blank": 157,
+                    "code": 1136,
+                    "comment": 246,
+                    "filename": "Case_Report\\v_compare_count_data_source.php"
+                },
+                {
+                    "blank": 28,
+                    "code": 1184,
+                    "comment": 221,
+                    "filename": "Case_Report\\v_create_report.php"
+                },
+                {
+                    "blank": 26,
+                    "code": 900,
+                    "comment": 234,
+                    "filename": "Case_Report\\v_dashboard.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 338,
+                    "comment": 32,
+                    "filename": "Case_Report\\v_detail_report.php"
+                },
+                {
+                    "blank": 31,
+                    "code": 1094,
+                    "comment": 116,
+                    "filename": "Case_Report\\v_edit_report.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 240,
+                    "comment": 9,
+                    "filename": "Case_Report\\v_notifications.php"
+                },
+                {
+                    "blank": 31,
+                    "code": 656,
+                    "comment": 174,
+                    "filename": "Case_Report\\v_report.php"
+                },
+                {
+                    "blank": 48,
+                    "code": 1130,
+                    "comment": 396,
+                    "filename": "Case_Report\\v_report_export.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "errors\\cli\\error_404.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "errors\\cli\\error_db.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "errors\\cli\\error_exception.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "errors\\cli\\error_general.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "errors\\cli\\error_php.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "errors\\cli\\index.html"
+                },
+                {
+                    "blank": 7,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "errors\\html\\error_404.php"
+                },
+                {
+                    "blank": 7,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "errors\\html\\error_db.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "errors\\html\\error_exception.php"
+                },
+                {
+                    "blank": 7,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "errors\\html\\error_general.php"
+                },
+                {
+                    "blank": 11,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "errors\\html\\error_php.php"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "errors\\html\\index.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "errors\\index.html"
+                },
+                {
+                    "blank": 42,
+                    "code": 711,
+                    "comment": 303,
+                    "filename": "Master_data\\v_manage_case_report_type.php"
+                },
+                {
+                    "blank": 43,
+                    "code": 707,
+                    "comment": 306,
+                    "filename": "Master_data\\v_manage_data_source.php"
+                },
+                {
+                    "blank": 42,
+                    "code": 714,
+                    "comment": 304,
+                    "filename": "Master_data\\v_manage_external_department.php"
+                },
+                {
+                    "blank": 43,
+                    "code": 714,
+                    "comment": 311,
+                    "filename": "Master_data\\v_manage_internal_department.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 34,
+                    "comment": 8,
+                    "filename": "People\\v_people_check_verify.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 84,
+                    "comment": 8,
+                    "filename": "People\\v_people_form.php"
+                },
+                {
+                    "blank": 8,
+                    "code": 363,
+                    "comment": 95,
+                    "filename": "Template_Custom\\v_footer.php"
+                },
+                {
+                    "blank": 4,
+                    "code": 60,
+                    "comment": 8,
+                    "filename": "Template_Custom\\v_footer_people.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 90,
+                    "comment": 8,
+                    "filename": "Template_Custom\\v_header.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 110,
+                    "comment": 8,
+                    "filename": "Template_Custom\\v_header_people.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 144,
+                    "comment": 8,
+                    "filename": "Template_Custom\\v_topbar.php"
+                },
+                {
+                    "blank": 4,
+                    "code": 206,
+                    "comment": 33,
+                    "filename": "v_index.php"
+                },
+                {
+                    "blank": 4,
+                    "code": 196,
+                    "comment": 33,
+                    "filename": "v_login.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 51,
+                    "comment": 8,
+                    "filename": "v_profile_setting.php"
+                },
+                {
+                    "blank": 4,
+                    "code": 107,
+                    "comment": 28,
+                    "filename": "v_reset_password.php"
+                }
+            ]
+        }
+    ]
+}
