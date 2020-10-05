@@ -36,7 +36,7 @@ class Exs_controller extends CI_Controller
 	*/
 	function index()
 	{
-		// to view v_home 
+		// call function view v_home 
 		$this->load_v_home();
 	}
 
