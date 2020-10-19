@@ -15,6 +15,45 @@ class Question_manage_controller extends Exs_controller
 		$this->output('v_question_manage');
 	}
 
+	function load_v_create_question()
+	{
+		// load model channel
+		$this->load->model('M_category', 'mct');
+		$data['rs_category'] = $this->mct->get_all()->result();
+		$data['data'] = $data;
+		$this->output('v_create_question',$data);
+	}
+
+	function question_insert(){
+		$language_id = $this->input->post("language_id");
+		$q_name = $this->input->post("q_name");
+		$level_id = $this->input->post("level_id");
+		$description = $this->input->post("description");
+		$subq_name = $this->input->post("subq_name");
+		$score = $this->input->post("score");
+		$status = 1;
+		$this->load->model('M_question', 'mq');
+		$this->mq->q_name = $q_name;
+		$this->mq->q_description = $description;
+		$this->mq->q_status = $status;
+		$this->mq->q_ca_id = $language_id;
+		$this->mq->q_level = $level_id;
+		$this->mq->q_create_user_id = $this->session->case_code;
+		$this->mq->q_seq = 0;
+		$this->mq->insert();
+		$q_id = ($this->mq->get_by_name()->result())[0]->q_id;
+		$this->load->model('M_sup_question', 'msq');
+		for($i=0;$i < count($subq_name) ; $i++){
+			$this->msq->sq_q_id = $q_id;
+			$this->msq->sq_seq = 0;
+			$this->msq->sq_description = $subq_name[$i];
+			$this->msq->sq_score = $score[$i];
+			$this->msq->insert();
+		}
+		$data['status'] = true;
+		echo json_encode($data);
+	}
+
 	function question_data_table()
 	{
 		// load M_question and define mq
