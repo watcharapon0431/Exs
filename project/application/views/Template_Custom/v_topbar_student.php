@@ -76,17 +76,7 @@
                 <li>
                     <a href="<?php echo site_url(); ?>/Exs_controller/load_v_menu" class="waves-effect">
                         <span class="hide-menu">
-                            <i class="fa fa-list-alt" style="font-size: 25px;"></i>&emsp;จัดการแบบฝึกหัด
-                            <span class="fa arrow"></span>
-                            <span class="label label-rouded label-inverse pull-right"></span>
-                        </span>
-                    </a>
-                </li>
-                <li class="devider"></li>
-                <li>
-                    <a href="<?php echo site_url(); ?>/Exs_controller/load_v_check_ans" class="waves-effect">
-                        <span class="hide-menu">
-                            <i class="fa fa-check-square-o" style="font-size: 25px;"></i>&emsp;ตรวจแบบฝึกหัด
+                            <i class="mdi mdi-clipboard-text" style="font-size: 20px;"></i>&emsp;ทำแบบฝึกหัด
                             <span class="fa arrow"></span>
                             <span class="label label-rouded label-inverse pull-right"></span>
                         </span>

@@ -7,7 +7,7 @@
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="col-md-6">
-                                <h2><i class="fa fa-check-square-o" style="font-size:40px;"></i>&emsp;ตรวจแบบฝึกหัด</h2>
+                                <h2><i class="mdi mdi-clipboard-text" style="font-size:40px;"></i>&emsp;ทำแบบฝึกหัด</h2>
                             </div>
                            
                         </div>
@@ -27,8 +27,7 @@
                                         <th style="text-align:center; width: 10%"">ลำดับ</th>
                                         <th style="text-align:center; width: 40%">เรื่อง</th>
                                         <th style="text-align:center; width: 15%"">วิชา</th>
-                                        <th style="text-align:center; width: 15%"">สถานะ</th>
-                                        <th style="text-align:center; width: 20%"">ดำเนินการ</th>
+                                        <th style="text-align:center; width: 20%"">คะแนน</th>
                                     </tr>
                                 </thead>
                                 <tbody>

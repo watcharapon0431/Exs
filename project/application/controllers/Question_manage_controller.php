@@ -10,10 +10,7 @@ class Question_manage_controller extends Exs_controller
 	}
 
 
-	function load_v_question_manage()
-	{
-		$this->output('v_question_manage');
-	}
+	
 
 	function question_data_table()
 	{
@@ -36,7 +33,6 @@ class Question_manage_controller extends Exs_controller
 					'q_seq' => $row->q_seq,
 					'q_status' => $row->q_status,
 					'q_ca_name' => $row->q_ca_name,
-					// 'btn_edit' => '<a href="' . site_url() . '/Question_manage_controller/question_edit/' . $row->q_id . '" type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></a >',
 					'btn_edit' => '<a id="btn_edit" onclick="question_edit(' . $row->q_id . ')"  type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></a >',
 					'btn_delete' => '<a id="btn-delete" onclick="question_delete(' . $row->q_id . ')"  type="button" class="btn btn-danger btn-circle" title="ลบ"><i class="fa fa-minus-circle "></i></a >',
 				)

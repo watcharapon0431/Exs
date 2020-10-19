@@ -31,6 +31,22 @@ class Exs_controller extends CI_Controller
 		}
 	}
 
+	function output_student($body = '', $data = '')
+	{
+		if (isset($this->session->aurthentication)) {
+			// Load Topbar
+			$this->load->view('Template_Custom/v_topbar_student');
+			// Load header
+			$this->load->view('Template_Custom/v_header');
+			// Load Footer
+			$this->load->view('Template_Custom/v_footer');
+
+			$this->load->view($body, $data);
+		} else {
+			redirect(site_url() . "/Exs_controller/index", "refresh");
+		}
+	}
+
 	function index()
 	{
 		$this->login();
@@ -49,8 +65,24 @@ class Exs_controller extends CI_Controller
 		$this->load->view('v_login');
 	}
 
+	function load_v_question_manage()
+	{
+		$this->output('v_question_manage');
+	}
+
 	function load_v_check_ans()
 	{
 		$this->output('v_check_ans');
 	}
+
+	function load_v_ans_student()
+	{
+		$this->output_student('v_ans_student');
+	}
+	
+	function load_v_menu()
+	{
+		($this->session->case_job == 'อาจารย์') ? $this->load_v_question_manage() : $this->load_v_ans_student();
+	}
+
 }

@@ -82,7 +82,7 @@
                     });
                     setTimeout(function() {
                         document.getElementById("loginform").submit()
-                    }, 1500)
+                    }, 1000)
                 } else {
                     swal({
                         title: 'เข้าสู่ระบบไม่สำเร็จ',
@@ -104,7 +104,7 @@
 
 <div class="login-box login-sidebar" align="middle">
     <div class="white-box border">
-        <form class="form-horizontal form-material" id="loginform" action="<?php echo site_url() . '/Question_manage_controller/load_v_question_manage'; ?> ">
+        <form class="form-horizontal form-material" id="loginform" action="<?php echo site_url() . '/Exs_controller/load_v_menu'; ?> ">
             <img src="<?php echo base_url() . "assets/img/documents.png"; ?>" width="50%">
             <h3 style="font-weight: bold;">Exam System</h3>
             <h5>ระบบทำแบบฝึกหัดออนไลน์</h5>
