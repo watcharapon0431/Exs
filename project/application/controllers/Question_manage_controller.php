@@ -49,7 +49,7 @@ class Question_manage_controller extends Exs_controller
 		// end loop set array_question from query of M_case
 
 		// Json's data sent back to Ajax form
-		$data['rs_question'] = $array_question 
+		$data['rs_question'] = $array_question;
 		// set case_count is count of all case's search data
 		$data['count_question'] = ($this->mq->count_question->result())[0]->count_question;
 		// echo json back to ajax form
