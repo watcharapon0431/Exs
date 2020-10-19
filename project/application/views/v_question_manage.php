@@ -89,11 +89,13 @@
                 console.log(json_data)
                     // start loop foreach display case's data on table
                     json_data.rs_question.forEach(function(element) {
+                        let status = '';
+                        (element.q_status == 0) ? status = 'ไม่ใช้งาน' : status = 'ใช้งาน' ;
                         table.append($('<tr>')
                             .append($('<td>').append("<center>" + element.q_seq + "</center>"))
                             .append($('<td>').append(element.q_name))
                             .append($('<td>').append("<center>" + element.q_ca_name + "</center>"))
-                            .append($('<td>').append("<center>" + element.q_status + "</center>"))
+                            .append($('<td>').append("<center>" + status + "</center>"))
                             .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
                         )
                         count_data++
