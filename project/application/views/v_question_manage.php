@@ -36,7 +36,6 @@
                                         <th style="text-align:center; width: 15%"">วิชา</th>
                                         <th style=" text-align:center; width: 15%"">สถานะ</th>
                                         <th style="text-align:center; width: 20%"">ดำเนินการ</th>
-                                        <th style="text-align:center;"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,29 +46,28 @@
 
                             <!-- --------------------------------------------- start pagination ------------------------------------------------------ -->
                             <div class=" col-md-12">
-                                <div class="col-md-4" align="left">
-                                    <p id="count_of_master_data"></p>
-                                </div>
-                                <input type="hidden" id="current_page" value="1">
-                                <input type="hidden" id="section_page" value="1">
-                                <div id="page_option" class="col-md-8" align="right">
+                                            <div class="col-md-4" align="left">
+                                                <p id="count_of_master_data"></p>
+                                            </div>
+                                            <input type="hidden" id="current_page" value="1">
+                                            <input type="hidden" id="section_page" value="1">
+                                            <div id="page_option" class="col-md-8" align="right">
 
-                                </div>
-                            </div>
-                            <!-- ---------------------------------------------- end pagination ------------------------------------------------------- -->
-
+                                            </div>
                         </div>
+                        <!-- ---------------------------------------------- end pagination ------------------------------------------------------- -->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 <script>
     $(document).ready(() => {
         // call report_get_table function
         data_table()
-
     })
 
     function data_table() {
@@ -83,22 +81,19 @@
             dataType: 'JSON',
             async: false,
             success: function(json_data) {
-                let count_data = 0
-                // console.log(json_data)
                 if (json_data.rs_question != null) {
-                console.log(json_data)
+                    let i = 1
                     // start loop foreach display case's data on table
                     json_data.rs_question.forEach(function(element) {
                         let status = '';
-                        (element.q_status == 0) ? status = 'ไม่ใช้งาน' : status = 'ใช้งาน' ;
+                        (element.q_status == 0) ? status = 'ไม่ใช้งาน': status = 'ใช้งาน';
                         table.append($('<tr>')
-                            .append($('<td>').append("<center>" + element.q_seq + "</center>"))
+                            .append($('<td>').append("<center>" + i++ + "</center>"))
                             .append($('<td>').append(element.q_name))
                             .append($('<td>').append("<center>" + element.q_ca_name + "</center>"))
                             .append($('<td>').append("<center>" + status + "</center>"))
                             .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
                         )
-                        count_data++
                     })
                     // end loop foreach display case's data on table
                 } else {
@@ -110,11 +105,11 @@
         })
     }
 
-    function question_edit(q_id){
+    function question_edit(q_id) {
         // ตรง
     }
 
-    function question_delete(q_id){
+    function question_delete(q_id) {
         // ตรง
     }
 </script>

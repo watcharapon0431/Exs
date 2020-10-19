@@ -9,9 +9,6 @@ class Question_manage_controller extends Exs_controller
 		$this->load_v_question_manage();
 	}
 
-
-	
-
 	function question_data_table()
 	{
 		// load M_question and define mq
