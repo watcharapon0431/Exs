@@ -20,12 +20,9 @@ class Question_manage_controller extends Exs_controller
 		// load M_question and define mq
 		$this->load->model('M_question', 'mq');
 		// load model M_user
-		$this->load->model('Master_data/M_user', 'mu');
-		// set start_limit is with page_number
-		// $this->mcs->start_limit = ($this->input->post('page_number') - 1) * 10;
+		$this->load->model('M_user', 'mu');
 		
 		$this->mq->q_create_user_id = $this->session->case_code;
-		
 
 		$rs_q = $this->mq->get_by_user_id()->result();
 		// set array_question is array 
@@ -38,9 +35,9 @@ class Question_manage_controller extends Exs_controller
 					'q_name' => $row->q_name,
 					'q_seq' => $row->q_seq,
 					'q_status' => $row->q_status,
-					'q_create_user_id ' => $row->q_create_user_id ,
-					'ca_name ' => $row->ca_name,
-					'btn_edit' => '<a href="' . site_url() . '/Question_manage_controller/question_edit/' . $row->q_id . '" type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></a >',
+					'q_ca_name' => $row->q_ca_name,
+					// 'btn_edit' => '<a href="' . site_url() . '/Question_manage_controller/question_edit/' . $row->q_id . '" type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></a >',
+					'btn_edit' => '<a id="btn_edit" onclick="question_edit(' . $row->q_id . ')"  type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></a >',
 					'btn_delete' => '<a id="btn-delete" onclick="question_delete(' . $row->q_id . ')"  type="button" class="btn btn-danger btn-circle" title="ลบ"><i class="fa fa-minus-circle "></i></a >',
 				)
 			);
@@ -50,12 +47,8 @@ class Question_manage_controller extends Exs_controller
 
 		// Json's data sent back to Ajax form
 		$data['rs_question'] = $array_question;
-		// set case_count is count of all case's search data
-		$data['count_question'] = ($this->mq->count_question->result())[0]->count_question;
-		// echo json back to ajax form
 
-		print_r($data['rs_question']);
-		die;
+		// echo json back to ajax form
 		echo json_encode($data);
 	}
 }
