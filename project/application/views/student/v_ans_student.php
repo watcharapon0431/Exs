@@ -16,18 +16,17 @@
             </div>
             <div class="col-md-12">
                 <div class="white-box">
-
                     <div class="table-responsive">
                         <div class="dataTables_wrapper no-footer">
-
                             <!-- --------------------------------------------- start report data table ------------------------------------------------------ -->
                             <table id="report_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
                                 <thead>
                                     <tr>
                                         <th style="text-align:center; width: 10%"">ลำดับ</th>
-                                        <th style=" text-align:center; width: 40%">เรื่อง</th>
-                                        <th style="text-align:center; width: 15%"">วิชา</th>
-                                        <th style=" text-align:center; width: 20%"">คะแนน</th>
+                                        <th style=" text-align:center; width: 40%">ชื่อแบบทดสอบ</th>
+                                        <th style="text-align:center; width: 15%"">ภาษา</th>
+                                        <th style="text-align:center; width: 15%"">ระดับความยาก</th>
+                                        <th style=" text-align:center; width: 10%"">คะแนน</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,14 +37,10 @@
 
                             <!-- --------------------------------------------- start pagination ------------------------------------------------------ -->
                             <div class="col-md-12">
-                                <div class="col-md-4" align="left">
-                                    <p id="count_of_master_data"></p>
-                                </div>
+                                <div class="col-md-4" align="left"><p id="count_of_master_data"></p></div>
                                 <input type="hidden" id="current_page" value="1">
                                 <input type="hidden" id="section_page" value="1">
-                                <div id="page_option" class="col-md-8" align="right">
-
-                                </div>
+                                <div id="page_option" class="col-md-8" align="right"></div>
                             </div>
                             <!-- ---------------------------------------------- end pagination ------------------------------------------------------- -->
                         </div>
@@ -67,7 +62,7 @@
             let check_col = $(this).index(),
                 check_row = $(this).parent().index();
             // if condition when dont click on btn-delete id button 
-            if (check_col != 7) {
+            // if (check_col != 7) {
                 // set row  is colunm index 2 for sent display v_detail_report
                 let $row = $(this).closest("tr"),
                     $tds = $row.find("td:nth-child(1)")
@@ -75,12 +70,12 @@
                 let code = ""
 
                 // url is string website
-                if (code != 'ไม่มีรายการแบบทดสอบ') {
+                // if (code != 'ไม่มีรายการแบบทดสอบ') {
                     let url = "<?php echo site_url() . "/Exs_controller/load_v_ans_student_descrip/" ?>"
                     // link to url and sent parameter
                     window.location.href = url + code
-                }
-            }
+                // }
+            // }
         })
         // end when click at row on table for display v_detail_report
     })
@@ -96,7 +91,7 @@
             dataType: 'JSON',
             async: false,
             success: function(json_data) {
-                console.log(json_data)
+                // console.log(json_data)
                 if (json_data.rs_ans != null) {
                     let i = 1
                     // start loop foreach display case's data on table
@@ -105,6 +100,7 @@
                             .append($('<td>').append("<center>" + i++ + "</center>"))
                             .append($('<td>').append(element.ans_q_name))
                             .append($('<td>').append("<center>" + element.ans_q_ca_name + "</center>"))
+                            .append($('<td>').append("<center>" + element.ans_q_level + "</center>"))
                             .append($('<td>').append("<center>" + element.ans_score + "</center>"))
                         )
                     })

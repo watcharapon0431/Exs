@@ -70,7 +70,6 @@
         @media screen and (max-width: 1024px) {
             #searchbox {
                 width: 40%;
-
                 left: 40%;
             }
         }

@@ -28,6 +28,7 @@ class Ans_controller extends Exs_controller
 				array(
 					'ans_q_name' => $row->q_name,
 					'ans_q_ca_name' => $row->q_ca_name,
+					'ans_q_level' => $row->q_level_name,
 					'ans_score' => 0
 				)
 			);
