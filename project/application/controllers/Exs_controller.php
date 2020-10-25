@@ -67,22 +67,22 @@ class Exs_controller extends CI_Controller
 
 	function load_v_question_manage()
 	{
-		$this->output('v_question_manage');
+		$this->output('teacher/v_question_manage');
 	}
 
 	function load_v_check_ans()
 	{
-		$this->output('v_check_ans');
+		$this->output('teacher/v_check_ans');
 	}
 
 	function load_v_ans_student()
 	{
-		$this->output_student('v_ans_student');
+		$this->output_student('student/v_ans_student');
 	}
 
 	function load_v_ans_student_descrip()
 	{
-		$this->output_student('v_ans_student_descrip');
+		$this->output_student('student/v_ans_student_descrip');
 	}
 	
 	function load_v_menu()

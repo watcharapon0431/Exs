@@ -12,7 +12,7 @@ class Question_manage_controller extends Exs_controller
 
 	function load_v_question_manage()
 	{
-		$this->output('v_question_manage');
+		$this->output('teacher/v_question_manage');
 	}
 
 	function load_v_create_question()
@@ -21,7 +21,7 @@ class Question_manage_controller extends Exs_controller
 		$this->load->model('M_category', 'mct');
 		$data['rs_category'] = $this->mct->get_all()->result();
 		$data['data'] = $data;
-		$this->output('v_create_question',$data);
+		$this->output('teacher/v_create_question',$data);
 	}
 
 	function question_insert(){
