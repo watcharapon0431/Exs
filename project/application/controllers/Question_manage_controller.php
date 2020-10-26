@@ -66,7 +66,7 @@ class Question_manage_controller extends Exs_controller
 		echo json_encode($data);
 	
 	}
-	
+
 	function check_ans_score($id){
 		$this->load->model('M_anser', 'ma');	
 		$this->ma->ans_id = $id;
@@ -86,26 +86,6 @@ class Question_manage_controller extends Exs_controller
 		$data['rs_q'] = $array_q;
 		$this->output('teacher/v_check_score', $data);
 
-	}
-
-	function question_insert(){
-		$this->mq->q_id = $q_id;
-		$this->mq->q_name = $q_name;
-		$this->mq->q_description = $description;
-		$this->mq->q_ca_id = $language_id;
-		$this->mq->q_level = $level_id;
-		$this->mq->q_create_user_id = $this->session->case_code;
-		$this->mq->edit();
-
-		$this->load->model('M_sup_question', 'msq');
-
-		$this->msq->sq_id  = $q_id;
-		$this->msq->sq_description = $subq_name;
-		$this->msq->sq_score = $score;
-		$this->msq->edit_sup_question();
-		$data['status'] = true;
-		echo json_encode($data);
-	
 	}
 
 	function question_insert()
