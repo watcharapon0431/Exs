@@ -80,11 +80,6 @@ class Exs_controller extends CI_Controller
 		$this->output_student('student/v_ans_student');
 	}
 
-	function load_v_ans_student_descrip()
-	{
-		$this->output_student('student/v_ans_student_descrip');
-	}
-	
 	function load_v_menu()
 	{
 		($this->session->case_job == 'อาจารย์') ? $this->load_v_question_manage() : $this->load_v_ans_student();

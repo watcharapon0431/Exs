@@ -7,7 +7,7 @@
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="col-md-6">
-                                <h2><i class="mdi mdi-clipboard-text" style="font-size:40px;"></i>&emsp;เริ่มทำแบบฝึกหัด</h2>
+                                <h2><i class="mdi mdi-clipboard-text" style="font-size:40px;"></i>&emsp;แบบฝึกหัด : <?php echo $rs_q[0][1]; ?></h2>
                             </div>
 
                         </div>
@@ -19,12 +19,11 @@
                     <div class="table-responsive">
                         <div class="dataTables_wrapper no-footer">
                             <!-- --------------------------------------------- start report data table ------------------------------------------------------ -->
-                            <table id="report_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
+                            <table id="sup_q_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
                                 <thead>
                                     <tr>
                                         <th style="text-align:center; width: 10%"">ลำดับ</th>
-                                        <th style=" text-align:center; width: 40%">เรื่อง</th>
-                                        <th style="text-align:center; width: 15%"">วิชา</th>
+                                        <th style=" text-align:center; width: 50%">รายละเอียด</th>
                                         <th style=" text-align:center; width: 20%"">คะแนน</th>
                                     </tr>
                                 </thead>
@@ -33,6 +32,7 @@
                                 </tbody>
                             </table>
                             <!-- ---------------------------------------------- end report data table ------------------------------------------------------- -->
+
                         </div>
                     </div>
                 </div>
@@ -43,6 +43,39 @@
 
 <script>
     $(document).ready(() => {
-
+        data_table()
     })
+
+    function data_table() {
+        let table = $("#sup_q_table tbody")
+        table.empty()
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url() . "/Ans_controller/ans_sup_q_table/" ?>",
+            data: {
+                'q_id': <?php echo $rs_q[0][0] ?>
+            },
+            dataType: 'JSON',
+            success: function(json_data) {
+                // console.log(json_data)
+                if (json_data.rs_sq != null) {
+                    let i = 1
+                    // start loop foreach display case's data on table
+                    json_data.rs_sq.forEach(function(element) {
+                        table.append($('<tr>')
+                            .append($('<td>').append("<center>" + i++ + "</center>"))
+                            .append($('<td>').append(element.sq_description))
+                            .append($('<td>').append("<center>" + element.sq_score + "</center>"))
+                        )
+                    })
+                    // end loop foreach display case's data on table
+                } else {
+                    let text_no_data = '<center><b><p>ไม่มีรายการแบบทดสอบ</p></b></center>'
+                    table.append($('<tr>').append('<td colspan="3">' + text_no_data + '</td>'))
+                }
+                // end if condition when have case's data equal or more than 1 data
+            }
+        })
+    }
 </script>

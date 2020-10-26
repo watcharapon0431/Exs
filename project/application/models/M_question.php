@@ -35,4 +35,12 @@ class M_question extends Da_question
 				WHERE q_name=?";
 		return $this->db->query($sql, array($this->q_name));
 	}
+
+	function get_name_by_id()
+	{
+		$sql = "SELECT q_name
+				FROM `question`
+				WHERE q_id=?";
+		return $this->db->query($sql, array($this->q_id));
+	}
 }
