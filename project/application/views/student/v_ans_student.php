@@ -84,7 +84,7 @@
             async: false,
             success: function(json_data) {
                 // console.log(json_data)
-                if (json_data.rs_ans != null) {
+                if (json_data.rs_ans != 0) {
                     let i = 1
                     // start loop foreach display case's data on table
                     json_data.rs_ans.forEach(function(element) {
@@ -99,7 +99,7 @@
                     })
                     // end loop foreach display case's data on table
                 } else {
-                    let text_no_data = '<center><b><p>ไม่มีรายการแบบทดสอบ</p></b></center>'
+                    let text_no_data = '<center><b>ไม่มีรายการแบบฝึกหัด</b></center>'
                     table.append($('<tr>').append('<td colspan="6">' + text_no_data + '</td>'))
                 }
                 // end if condition when have case's data equal or more than 1 data

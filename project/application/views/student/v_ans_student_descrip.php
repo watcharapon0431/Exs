@@ -22,8 +22,8 @@
                             <table id="sup_q_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center; width: 10%"">ลำดับ</th>
-                                        <th style=" text-align:center; width: 50%">รายละเอียด</th>
+                                        <th style="text-align:center; width: 15%"">ลำดับ</th>
+                                        <th style=" text-align:center; width: 60%">รายละเอียด</th>
                                         <th style=" text-align:center; width: 20%"">คะแนน</th>
                                     </tr>
                                 </thead>
@@ -59,7 +59,7 @@
             dataType: 'JSON',
             success: function(json_data) {
                 // console.log(json_data)
-                if (json_data.rs_sq != null) {
+                if (json_data.rs_sq != 0) {
                     let i = 1
                     // start loop foreach display case's data on table
                     json_data.rs_sq.forEach(function(element) {
@@ -71,7 +71,8 @@
                     })
                     // end loop foreach display case's data on table
                 } else {
-                    let text_no_data = '<center><b><p>ไม่มีรายการแบบทดสอบ</p></b></center>'
+                    let text_no_data = '<center><b>ไม่มีเกณฑ์คะแนนแบบฝึกหัด</b></center>'
+                    console.log(text_no_data)
                     table.append($('<tr>').append('<td colspan="3">' + text_no_data + '</td>'))
                 }
                 // end if condition when have case's data equal or more than 1 data

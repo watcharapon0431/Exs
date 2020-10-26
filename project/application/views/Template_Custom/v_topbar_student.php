@@ -76,7 +76,7 @@
                 <li>
                     <a href="<?php echo site_url(); ?>/Exs_controller/load_v_menu" class="waves-effect">
                         <span class="hide-menu">
-                            <i class="mdi mdi-clipboard-text" style="font-size: 20px;"></i>&emsp;ทำแบบฝึกหัด
+                            <i class="mdi mdi-clipboard-text" style="font-size: 20px;"></i>&emsp;แบบฝึกหัด
                             <span class="fa arrow"></span>
                             <span class="label label-rouded label-inverse pull-right"></span>
                         </span>
