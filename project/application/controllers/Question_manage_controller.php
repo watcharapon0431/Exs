@@ -9,7 +9,6 @@ class Question_manage_controller extends Exs_controller
 		$this->load_v_question_manage();
 	}
 
-
 	function load_v_question_manage()
 	{
 		$this->output('teacher/v_question_manage');
@@ -23,6 +22,7 @@ class Question_manage_controller extends Exs_controller
 		$data['data'] = $data;
 		$this->output('teacher/v_create_question',$data);
 	}
+
 	function load_v_edit()
 	{
 		// load model channel
@@ -50,7 +50,6 @@ class Question_manage_controller extends Exs_controller
 		array_push($array_q,array($result[0]->ans_q_id, $name, $description));
 		$data['rs_q'] = $array_q;
 		$this->output('teacher/v_check_score', $data);
-
 	}
 
 	function question_insert(){
@@ -69,16 +68,11 @@ class Question_manage_controller extends Exs_controller
 		$this->mq->q_level = $level_id;
 		$this->mq->q_create_user_id = $this->session->case_code;
 		$this->mq->q_seq = 0;
-		$this->mq->insert();
-		$q_id = ($this->mq->get_by_name()->result())[0]->q_id;
-		$this->load->model('M_sup_question', 'msq');
+		$sub_q = array();
 		for($i=0;$i < count($subq_name) ; $i++){
-			$this->msq->sq_q_id = $q_id;
-			$this->msq->sq_seq = 0;
-			$this->msq->sq_description = $subq_name[$i];
-			$this->msq->sq_score = $score[$i];
-			$this->msq->insert();
+			array_push($sub_q,array($subq_name[$i],$score[$i]));
 		}
+		$this->mq->insert($sub_q);
 		$data['status'] = true;
 		echo json_encode($data);
 	}
