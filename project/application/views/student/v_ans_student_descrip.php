@@ -55,7 +55,7 @@
                             <div class="col-md-2" style="text-align: center;">
                                 <br>
                                 <!-- ----------------------- start ส่งข้อมูล input ----------------------- -->
-                                <button class="btn btn-success waves-effect waves-light" onclick=""><span class="btn-label"><i class="fa fa-save"></i></span>บันทึก</button>
+                                <button class="btn btn-success waves-effect waves-light" onclick="insert()"><span class="btn-label"><i class="fa fa-save"></i></span>บันทึก</button>
                                 <!-- ----------------------- End ส่งข้อมูล input ----------------------- -->
                             </div>
                             <div class="col-md-4"></div>
@@ -103,6 +103,22 @@
                     table.append($('<tr>').append('<td colspan="3">' + text_no_data + '</td>'))
                 }
                 // end if condition when have case's data equal or more than 1 data
+            }
+        })
+    }
+
+    function insert() {
+        let ans_description = $("#Ans").val()
+        console.log(ans_description)
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url() . "/Ans_controller/ans_sup_q_table/" ?>",
+            data: {
+                
+            },
+            dataType: 'JSON',
+            success: function(json_data) {
+                
             }
         })
     }
