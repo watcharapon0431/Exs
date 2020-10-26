@@ -29,10 +29,15 @@ class Question_manage_controller extends Exs_controller
 		// load model channel
 		$this->load->model('M_question', 'mst');
 		$this->load->model('M_category', 'mct');
-		$data['rs_category'] = $this->mct->get_all()->result();
 
+		$data['rs_category'] = $this->mct->get_all()->result();
 		$this->mst->q_id = $q_id;
+		$ca_id = $this->mst->get_ca_id_by_id()->result()[0]->q_ca_id;
+		$this->mct->ca_id = $ca_id;
+		$data['category'] = $this->mct->get_by_id()->result();
+		
 		$data['rs_question'] = $this->mst->get_data_by_id()->result();
+		
 		$this->output('teacher/v_edit', $data);
 	}
 	
