@@ -44,6 +44,17 @@ class Ans_controller extends Exs_controller
 		$this->output_student('student/v_ans_student_descrip', $data);
 	}
 
+	function ans_check_score(){
+		$id = $this->input->post("id");
+		$score = $this->input->post("score");
+		$this->load->model('M_anser', 'ma');	
+		$this->ma->ans_id = $id;
+		$this->ma->ans_score = $score;
+		$this->ma->ans_status = 1;
+		$this->ma->check_score();
+		echo json_encode(true);
+	}
+
 	function ans_sup_q_table()
 	{
 		$this->load->model('M_sup_question', 'msq');

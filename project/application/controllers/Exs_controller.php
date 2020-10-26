@@ -85,4 +85,6 @@ class Exs_controller extends CI_Controller
 		($this->session->case_job == 'อาจารย์') ? $this->load_v_question_manage() : $this->load_v_ans_student();
 	}
 
+	
+
 }

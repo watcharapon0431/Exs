@@ -32,6 +32,27 @@ class Question_manage_controller extends Exs_controller
 		$this->output('teacher/v_edit',$data);
 	}
 
+	function check_ans_score($id){
+		$this->load->model('M_anser', 'ma');	
+		$this->ma->ans_id = $id;
+		$result = $this->ma->get_all_by_id()->result();
+		$this->load->model('M_question', 'mq');
+		$this->mq->q_id = $result[0]->ans_q_id;
+		// $q_result = $this->mq->get_name_by_id()->result();
+		// $data['rs_q'] = $q_result;
+		$data['rs_a'] = $result;
+		// $this->output_student('teacher/v_check_score',$data);
+		// $this->load->model('M_question', 'mq');
+		// $this->mq->q_id = $id;
+		$name = ($this->mq->get_name_by_id()->result())[0]->q_name;
+		$description = ($this->mq->get_name_by_id()->result())[0]->q_description;
+		$array_q = array();
+		array_push($array_q,array($result[0]->ans_q_id, $name, $description));
+		$data['rs_q'] = $array_q;
+		$this->output('teacher/v_check_score', $data);
+
+	}
+
 	function question_insert(){
 		$language_id = $this->input->post("language_id");
 		$q_name = $this->input->post("q_name");

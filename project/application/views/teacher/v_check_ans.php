@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-12">
                 <div class="white-box">
-                    
+                    <a href="<?php echo site_url() . "/Question_manage_controller/check_ans_score/2"; ?>">hoeel</a>
                     <div class="table-responsive">
                         <div class="dataTables_wrapper no-footer">
 

@@ -145,7 +145,7 @@
     function add_append() {
         // declare new_subq_no = value of input id total_count_subq+1
         new_subq_no = parseInt($('#total_count_subq').val()) + 1
-        new_score_no = parseInt($('#total_count_subq').val()) + 1
+        new_score_no = parseInt($('#total_count_score').val()) + 1
         $(".subq").append(
             "<div class='col-md-9' id='div_input_append" + new_subq_no + "'><br>" +
             "<input type='text' id='subq_name_" + new_subq_no + "' class='form-control' placeholder='เกณฑ์คะแนน...'>" +
