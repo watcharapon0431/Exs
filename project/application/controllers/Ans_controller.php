@@ -4,6 +4,7 @@ require_once(dirname(__FILE__) . "/Exs_controller.php");
 
 class Ans_controller extends Exs_controller
 {
+	
 	function ans_data_table()
 	{
 		$this->load->model('M_question', 'mq');
@@ -53,6 +54,13 @@ class Ans_controller extends Exs_controller
 		$this->ma->ans_status = 1;
 		$this->ma->check_score();
 		echo json_encode(true);
+	}
+
+	function table_data_ans()
+	{
+		$this->load->model('M_anser', 'ma');
+		$data['rs_all'] = $this->ma->get_answer()->result();
+        echo json_encode($data);
 	}
 
 	function ans_sup_q_table()
