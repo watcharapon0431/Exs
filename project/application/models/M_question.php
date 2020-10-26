@@ -69,4 +69,12 @@ class M_question extends Da_question
 		WHERE q_id=? ";
 		$this->db->query($sql, array($this->q_name, $this->q_description, $this->q_ca_id,$this->q_level,$this->q_create_user_id,$this->q_id));
 	}
+
+	function get_ca_id_by_id()
+	{
+		$sql = "SELECT q_ca_id 
+				FROM `question`
+				WHERE q_id=? ";
+		return $this->db->query($sql, array($this->q_id));
+	}
 }

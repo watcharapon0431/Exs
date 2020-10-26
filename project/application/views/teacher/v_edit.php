@@ -250,6 +250,8 @@
                 </div>
             </div>
           <?php 
+          print_r($category);
+          
             foreach ($rs_question as $row) {
             ?>
                 <!-- <input type="hiddne"> -->
@@ -278,9 +280,9 @@
                                         <label class="col-md-12">ภาษา : <span class="help"> *</span></label>
                                         <div class="col-md-12">
                                             <select class="form-control" id="language_id">
-
-                                                <option value="<?php echo $row->ca_name; ?>"><?php echo $row->ca_name; ?></option>
-                                                <?php
+                                                
+                                                <option value="<?php echo $category[0]->ca_name;; ?>"><?php echo $category[0]->ca_name;; ?></option>
+                                                 <?php 
                                                 /*start call level infomation form case_controller*/
                                                 foreach ($rs_category as $value) { ?>
                                                   <?php if($value->ca_name != $row->ca_name){ ?> 
