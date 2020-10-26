@@ -16,7 +16,7 @@ class M_question extends Da_question
 				END as q_level_name
 				FROM `question` as q
                 LEFT JOIN category as ca ON ca.ca_id = q.q_ca_id
-				WHERE q_create_user_id=?";
+				WHERE q_create_user_id=? AND q_status!=2";
 		return $this->db->query($sql, array($this->q_create_user_id));
 	}
 
@@ -42,5 +42,12 @@ class M_question extends Da_question
 				FROM `question`
 				WHERE q_id=?";
 		return $this->db->query($sql, array($this->q_id));
+	}
+
+	function update_status(){
+		$sql = "UPDATE question 
+				SET q_status = ?
+				WHERE q_id = ?";
+		$this->db->query($sql,array($this->q_status,$this->q_id));
 	}
 }
