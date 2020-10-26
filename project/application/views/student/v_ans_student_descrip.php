@@ -20,6 +20,7 @@
                         <div class="dataTables_wrapper no-footer">
                             <!-- --------------------------------------------- start report data table ------------------------------------------------------ -->
                             <table id="sup_q_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
+                                <h4><b>รายละเอียด : </b> <?php echo $rs_q[0][2]; ?> โดยมีเกณฑ์คะแนนดังนี้</h4>
                                 <thead>
                                     <tr>
                                         <th style="text-align:center; width: 15%"">ลำดับ</th>

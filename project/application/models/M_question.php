@@ -38,7 +38,7 @@ class M_question extends Da_question
 
 	function get_name_by_id()
 	{
-		$sql = "SELECT q_name
+		$sql = "SELECT q_name, q_description 
 				FROM `question`
 				WHERE q_id=?";
 		return $this->db->query($sql, array($this->q_id));

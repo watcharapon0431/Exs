@@ -37,9 +37,9 @@ class Ans_controller extends Exs_controller
 		$this->load->model('M_question', 'mq');
 		$this->mq->q_id = $id;
 		$name = ($this->mq->get_name_by_id()->result())[0]->q_name;
-		print_r($name);
+		$description = ($this->mq->get_name_by_id()->result())[0]->q_description;
 		$array_q = array();
-		array_push($array_q,array($id, $name));
+		array_push($array_q,array($id, $name, $description));
 		$data['rs_q'] = $array_q;
 		$this->output_student('student/v_ans_student_descrip', $data);
 	}
