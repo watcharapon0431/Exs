@@ -283,8 +283,10 @@
                                                 <?php
                                                 /*start call level infomation form case_controller*/
                                                 foreach ($rs_category as $value) { ?>
-
-                                                    <option value="<?php echo $value->ca_name; ?>"><?php echo $value->ca_name; ?></option>
+                                                  <?php if($value->ca_name != $row->ca_name){ ?> 
+                                                  <option value="<?php echo $value->ca_name; ?>"><?php echo $value->ca_name; ?></option>
+                                                  <?php } ?>
+                                                  
 
                                                 <?php  }
                                                 ?>
@@ -305,10 +307,12 @@
                                                 <?php
                                                 /*start call level infomation form case_controller*/
                                                 for ($i = 1; $i <= 5; $i++) {
-                                                ?>
+                                                 if($i != $row->q_level){
+                                                 ?> 
                                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                 <?php
-                                                }
+                                                 }   
+                                                 }
                                                 /*end call level infomation form case_controller*/
                                                 ?>
                                             </select>
