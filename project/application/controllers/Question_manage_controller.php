@@ -157,10 +157,12 @@ class Question_manage_controller extends Exs_controller
 	{
 		$id = $this->input->post('id');
 		$this->load->model('M_question', 'mq');
-		$this->mq->q_id = $id;
-		$this->mq->q_status = 2;
-		$data['check'] = $this->mq->update_status();
-
+		$result = $this->mq->update_status($id);
+		if($result->getModifiedCount()){
+			$data['check'] = true;
+		}else{
+			$data['check'] = false;
+		}
 		echo json_encode($data);
 	}
 }

@@ -133,11 +133,11 @@
                         },
                         dataType:'JSON',
                         success: function(result){
-                            swal("Done!", "It was succesfully deleted!", "success");
+                            swal("เรียบร้อย!", "ระบบทำการลบข้อมูลเรียบร้อยแล้ว!", "success");
                             data_table();
                         },
                         error: function(xhr, ajaxOptions, thrownError){
-                            swal("Error deleting!", "Please try again", "error");
+                            swal("ล้มเหลว!", "ระบบไม่สามารถทำการลบข้อมูลได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง", "error");
                         }
                 });
             });
