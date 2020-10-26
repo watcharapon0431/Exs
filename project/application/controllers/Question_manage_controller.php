@@ -23,6 +23,14 @@ class Question_manage_controller extends Exs_controller
 		$data['data'] = $data;
 		$this->output('teacher/v_create_question',$data);
 	}
+	function load_v_edit()
+	{
+		// load model channel
+		$this->load->model('M_category', 'mct');
+		$data['rs_category'] = $this->mct->get_all()->result();
+		$data['data'] = $data;
+		$this->output('teacher/v_edit',$data);
+	}
 
 	function question_insert(){
 		$language_id = $this->input->post("language_id");

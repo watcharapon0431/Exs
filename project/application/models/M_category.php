@@ -10,6 +10,6 @@ class M_category extends Da_category
 		$query = $this->db->query($sql);
 		return $query;
     }
-    
+
 
 }

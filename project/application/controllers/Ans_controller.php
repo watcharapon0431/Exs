@@ -47,7 +47,7 @@ class Ans_controller extends Exs_controller
 	function ans_sup_q_table()
 	{
 		$this->load->model('M_sup_question', 'msq');
-		$this->msq->sq_q_id = $this->input->post('q_id');;
+		$this->msq->sq_q_id = $this->input->post('q_id');
 		$rs_sub = $this->msq->get_by_question_id()->result();
 
 		$array_sq = array();
@@ -64,5 +64,15 @@ class Ans_controller extends Exs_controller
 		$data['rs_sq'] = $array_sq;
 		// echo json back to ajax form
 		echo json_encode($data);
+	}
+
+	function create_ans_student(){
+		$this->load->model('M_anser', 'ma');
+		$this->ma->ans_description = $this->input->post('ans_description');
+		$this->ma->ans_status = $this->input->post('ans_status');
+		$this->ma->ans_q_id = $this->input->post('ans_q_id');
+		$this->ma->ans_user_id = $this->session->case_code;
+		$this->ma->insert();
+		echo json_encode(true);
 	}
 }

@@ -92,7 +92,7 @@
                             .append($('<td>').append(element.q_name))
                             .append($('<td>').append("<center>" + element.q_ca_name + "</center>"))
                             .append($('<td>').append("<center>" + status + "</center>"))
-                            .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
+                            .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))                          
                         )
                     })
                     // end loop foreach display case's data on table
@@ -106,7 +106,22 @@
     }
 
     function question_edit(q_id) {
+
+       
         // ตรง
+        $.ajax({
+            type: "POST",
+            url: "<?php echo site_url() . "/Question_manage_controller/load_v_edit/" ?>",
+            data: {},
+            dataType: 'JSON',
+            async: false,
+            success: function() {
+                alert(q_id);
+            }
+        });
+
+
+
     }
 
     function question_delete(q_id) {
