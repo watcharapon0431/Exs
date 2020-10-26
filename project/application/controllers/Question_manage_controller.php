@@ -20,16 +20,50 @@ class Question_manage_controller extends Exs_controller
 		$this->load->model('M_category', 'mct');
 		$data['rs_category'] = $this->mct->get_all()->result();
 		$data['data'] = $data;
-		$this->output('teacher/v_create_question',$data);
+		$this->output('teacher/v_create_question', $data);
 	}
 
-	function load_v_edit()
+	function load_v_edit($q_id)
 	{
 		// load model channel
+		$this->load->model('M_question', 'mst');
 		$this->load->model('M_category', 'mct');
 		$data['rs_category'] = $this->mct->get_all()->result();
-		$data['data'] = $data;
-		$this->output('teacher/v_edit',$data);
+
+		$this->mst->q_id = $q_id;
+		$data['rs_question'] = $this->mst->get_data_by_id()->result();
+		$this->output('teacher/v_edit', $data);
+	}
+	
+	function question_update()
+	{
+	
+		$this->load->model('M_question', 'mq');
+		$language_id = $this->input->post("language_id");
+		$q_name = $this->input->post("q_name");
+		$level_id = $this->input->post("level_id");
+		$description = $this->input->post("description");
+		$subq_name = $this->input->post("subq_name");
+		$score = $this->input->post("score");
+		$q_id = $this->input->post("q_id");
+
+		$this->mq->q_id = $q_id;
+		$this->mq->q_name = $q_name;
+		$this->mq->q_description = $description;
+		$this->mq->q_ca_id = $language_id;
+		$this->mq->q_level = $level_id;
+		$this->mq->q_create_user_id = $this->session->case_code;
+		$this->mq->edit();
+
+		$this->load->model('M_sup_question', 'msq');
+
+		$this->msq->sq_id  = $q_id;
+		$this->msq->sq_description = $subq_name;
+		$this->msq->sq_score = $score;
+		$this->msq->edit_sup_question();
+		$data['status'] = true;
+		echo json_encode($data);
+	
 	}
 
 	function check_ans_score($id){
@@ -52,7 +86,8 @@ class Question_manage_controller extends Exs_controller
 		$this->output('teacher/v_check_score', $data);
 	}
 
-	function question_insert(){
+	function question_insert()
+	{
 		$language_id = $this->input->post("language_id");
 		$q_name = $this->input->post("q_name");
 		$level_id = $this->input->post("level_id");
@@ -83,7 +118,7 @@ class Question_manage_controller extends Exs_controller
 		$this->load->model('M_question', 'mq');
 		// load model M_user
 		$this->load->model('M_user', 'mu');
-		
+
 		$this->mq->q_create_user_id = $this->session->case_code;
 
 		$rs_q = $this->mq->get_by_user_id()->result();
@@ -92,7 +127,7 @@ class Question_manage_controller extends Exs_controller
 		// start loop set array_question from query of M_case
 		foreach ($rs_q as $row) {
 			array_push(
-				$array_question, 
+				$array_question,
 				array(
 					'q_name' => $row->q_name,
 					'q_seq' => $row->q_seq,
