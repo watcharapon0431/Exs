@@ -45,7 +45,7 @@
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="col-md-12">
-                                <textarea id="Ans" cols="220"  value="sadas" rows="10"><?php echo  $rs_a[0]->ans_description;?></textarea>
+                                <textarea id="Ans" cols="220"  disabled value="sadas" rows="10"><?php echo  $rs_a[0]->ans_description;?></textarea>
                             </div>
                             <div class="col-md-12">
                             <div class="col-md-4"></div>
