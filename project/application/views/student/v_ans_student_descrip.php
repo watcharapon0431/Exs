@@ -33,7 +33,33 @@
                                 </tbody>
                             </table>
                             <!-- ---------------------------------------------- end report data table ------------------------------------------------------- -->
-
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <textarea id="Ans" cols="220" rows="10"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-2" style="text-align: center;">
+                                <br>
+                                <!-- ----------------------- start ยกเลิก submit ----------------------- -->
+                                <button class="btn btn-default waves-effect waves-light" onclick="history.back();"><span class="btn-label"><i class="fa fa-times"></i></span>ยกเลิก</button>
+                                <!-- ----------------------- End ยกเลิก submit ----------------------- -->
+                            </div>
+                            <div class="col-md-2" style="text-align: center;">
+                                <br>
+                                <!-- ----------------------- start ส่งข้อมูล input ----------------------- -->
+                                <button class="btn btn-success waves-effect waves-light" onclick=""><span class="btn-label"><i class="fa fa-save"></i></span>บันทึก</button>
+                                <!-- ----------------------- End ส่งข้อมูล input ----------------------- -->
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
                         </div>
                     </div>
                 </div>
