@@ -12,4 +12,12 @@ class M_sup_question extends Da_sup_question
                 ORDER BY sq_id";
 		return $this->db->query($sql, array($this->sq_q_id));
 	}
+
+	function edit_sup_question()
+	{ 
+		$sql = "UPDATE `sup_question`
+		SET	sq_description=?, sq_score=?
+		WHERE sq_id=? ";
+		$this->db->query($sql, array($this->sq_description, $this->sq_score, $this->sq_id));
+	}
 }
