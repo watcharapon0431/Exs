@@ -43,4 +43,11 @@ class M_question extends Da_question
 				WHERE q_id=?";
 		return $this->db->query($sql, array($this->q_id));
 	}
+
+	function update_status(){
+		$sql = "UPDATE question 
+				SET q_status = ?
+				WHERE q_id = ?";
+		$this->db->query($sql,array($this->q_status,$this->q_id));
+	}
 }

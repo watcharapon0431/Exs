@@ -26,7 +26,7 @@ class Da_question extends CI_Model {
 		$sql = "UPDATE `question`
 				SET	q_name=?, q_description=?, q_seq=?, q_status=?, q_ca_id=?
 				WHERE q_id=?";	
-		$this->db->query($sql, array($this->q_name, $this->q_description, $this->q_seq, $this->q_status, $this->q_ca_id));
+		$this->db->query($sql, array($this->q_name, $this->q_description, $this->q_seq, $this->q_status, $this->q_ca_id,$this->q_id));
 	}
 	
 	function delete() {

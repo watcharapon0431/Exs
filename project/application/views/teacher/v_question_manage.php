@@ -39,7 +39,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                        
                                 </tbody>
                             </table>
                             <!-- ---------------------------------------------- end report data table ------------------------------------------------------- -->
@@ -110,6 +110,32 @@
     }
 
     function question_delete(q_id) {
-        // ตรง
+            swal({
+            title: "คุณต้องการลบข้อมูลใช่หรือไม่?",
+            text: "ข้อมูลของคุณจะสูญหาย!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "ยืนยัน",
+            closeOnConfirm: false,
+            cancelButtonText: 'ยกเลิก'
+            }, function(result){
+             if (!result) return;
+                $.ajax({
+                        type:"POST",
+                        url:"<?php echo site_url() . "/Question_manage_controller/question_delete_data/" ?>",
+                        data: {
+                            id:q_id
+                        },
+                        dataType:'JSON',
+                        success: function(result){
+                            swal("Done!", "It was succesfully deleted!", "success");
+                            data_table();
+                        },
+                        error: function(xhr, ajaxOptions, thrownError){
+                            swal("Error deleting!", "Please try again", "error");
+                        }
+                });
+            });
     }
 </script>
