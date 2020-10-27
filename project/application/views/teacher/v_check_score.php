@@ -105,16 +105,19 @@
                   
                     let score = 0;
                     let index=1;
+                    let new_score_no = 0;
                     json_data.rs_sq.forEach(function(element) {
                         table.append($('<tr>')
                             .append($('<td>').append("<center>" + i++ + "</center>"))
                             .append($('<td>').append(element.sq_description))
                             .append($('<td>').append("<center>" + element.sq_score + "</center>"))
-                            .append($('<td>').append("<input type='text' name='score' id='score_"+index+"' placeholder='"+element.sq_score+"'> "))  
+                            .append($('<td>').append("<input type='text' name='score' id='score_"+index+
+                                "' placeholder='"+element.sq_score+
+                                "'> "))  
                         )
                       
                         score += parseInt(element.sq_score);
-                        let new_score_no = parseInt($('#total_count_score').val()) + 1
+                        new_score_no = parseInt($('#total_count_score').val()) + 1
                         $('#total_count_score').val(new_score_no)
                         index+=1;
                     })
@@ -138,7 +141,7 @@
             for (i = 1; i <= count; i++) {
                 score += parseInt($('#score_'+i).val())
             }
-            alert(score)
+            // alert(score)
             $('#sum_score').text(score+" คะแนน")
             let id = <?php echo  $rs_a[0]->ans_id;?>;
         $.ajax({

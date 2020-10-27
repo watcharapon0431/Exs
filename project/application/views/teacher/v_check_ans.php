@@ -100,14 +100,16 @@
                     let i = 1
                     // start loop foreach display case's data on table
                     json_data.rs_all.forEach(function(element) {
+                        let score;
+                        (element.ans_score != null) ? score = element.ans_score : score = 0; 
                         table.append($('<tr>')
-                            .append($('<td hidden>').append("<center>" + element.q_id + "</center>"))
+                            .append($('<td hidden>').append("<center>" + element.ans_id + "</center>"))
                             .append($('<td>').append("<center>" + i++ + "</center>"))
                             .append($('<td>').append(element.q_name))
                             .append($('<td>').append("<center>" + element.ca_name + "</center>"))
                             .append($('<td>').append("<center>" + element.user_fname + "</center>"))
                             .append($('<td>').append("<center>" + element.status + "</center>"))
-                            .append($('<td>').append("<center>" + element.ans_score + "</center>"))
+                            .append($('<td>').append("<center>" + score + "</center>"))
                             // .append($('<td>').append("<center>" + element.score + "</center>"))
                         )
                     })

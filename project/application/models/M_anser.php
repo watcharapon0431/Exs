@@ -29,9 +29,10 @@ class M_anser extends Da_anser
     }
     function get_answer()
 	{
-		$sql = "SELECT q_id,q_name ,user_fname,ca_name,
-                CASE WHEN ans_status = 1 THEN 'ตรวจแล้ว'
-                WHEN ans_status = 0  THEN 'ยังไม่ตรวจ'
+		$sql = "SELECT ans_id, q_id, q_name, user_fname, ca_name,
+                CASE 
+					WHEN ans_status = 1 THEN 'ตรวจแล้ว'
+                	WHEN ans_status = 0  THEN 'ยังไม่ตรวจ'
                 End as status, ans_score
 				FROM anser
                 INNER join question on ans_q_id = q_id
