@@ -6,18 +6,54 @@ class M_question extends Da_question
 {
 	function get_by_user_id()
 	{
-		$sql = "SELECT q_id, q_name, q_description, q_seq, q_status, q_ca_id, ca.ca_name as q_ca_name, 
-				CASE
-    				WHEN q_level = 1 THEN 'ง่ายมาก'
-    				WHEN q_level = 2 THEN 'ง่าย'
-    				WHEN q_level = 3 THEN 'ปานกลาง'
-    				WHEN q_level = 4 THEN 'ยาก'
-    				WHEN q_level = 5 THEN 'ยากมาก'
-				END as q_level_name
-				FROM `question` as q
-                LEFT JOIN category as ca ON ca.ca_id = q.q_ca_id
-				WHERE q_create_user_id=? AND q_status!=2";
-		return $this->db->query($sql, array($this->q_create_user_id));
+
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
+		// $check = $db->question->find(
+		// 	['q_create_user_id' => $this->q_create_user_id]
+		// );
+			$result = $db->questions->find(array('q_create_user_id' =>  $this->q_create_user_id));
+			// $result = iterator_to_array($result);
+			// $user_following = array();
+			// foreach($result as $entry){
+			// 	$user_following[] = $entry['user'];
+			// }
+			// $result = $db->tweets->find(array('authorId' => array('$in' => $user_following) ));
+			// $recent_tweets = iterator_to_array($result);
+			return $result;
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+		// foreach ($check as $restaurant) {
+		// 	var_dump($restaurant);
+		//  };
+
+		// print_r($check);
+
+		// $sql = "SELECT q_id, q_name, q_description, q_seq, q_status, q_ca_id, ca.ca_name as q_ca_name, 
+		// 		CASE
+    	// 			WHEN q_level = 1 THEN 'ง่ายมาก'
+    	// 			WHEN q_level = 2 THEN 'ง่าย'
+    	// 			WHEN q_level = 3 THEN 'ปานกลาง'
+    	// 			WHEN q_level = 4 THEN 'ยาก'
+    	// 			WHEN q_level = 5 THEN 'ยากมาก'
+		// 		END as q_level_name
+		// 		FROM `question` as q
+        //         LEFT JOIN category as ca ON ca.ca_id = q.q_ca_id
+		// 		WHERE q_create_user_id=? AND q_status!=2";
+		// return $check;
 	}
 
 	function count_question()
@@ -45,18 +81,18 @@ class M_question extends Da_question
 	}
 
 	function update_status($id){
-		require 'vendor/autoload.php';
-		$client = new MongoDB\Client("mongodb://localhost:27017");
-		$db = $client->exsdb;
-		$check = $db->question->updateOne(
-			['q_id' => "$id"],
-			['$set' => ['q_status' => '2']]
-		);
-		// $sql = "UPDATE question 
-		// 		SET q_status = ?
-		// 		WHERE q_id = ?";
-		// $this->db->query($sql,array($this->q_status,$this->q_id));
-		return $check;
+		// require 'vendor/autoload.php';
+		// $client = new MongoDB\Client("mongodb://localhost:27017");
+		// $db = $client->exsdb;
+		// $check = $db->question->updateOne(
+		// 	['q_id' => "$id"],
+		// 	['$set' => ['q_status' => '2']]
+		// );
+		$sql = "UPDATE question 
+				SET q_status = ?
+				WHERE q_id = ?";
+		return $this->db->query($sql,array($this->q_status,$id));
+		// return $check;
 	}
 	
 	function get_data_by_id()

@@ -250,7 +250,7 @@
                 </div>
             </div>
           <?php 
-          print_r($category);
+        //   print_r($category);
           
             foreach ($rs_question as $row) {
             ?>

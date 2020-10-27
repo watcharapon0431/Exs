@@ -91,6 +91,7 @@ class Ans_controller extends Exs_controller
 		$this->ma->ans_status = $this->input->post('ans_status');
 		$this->ma->ans_q_id = $this->input->post('ans_q_id');
 		$this->ma->ans_user_id = $this->session->case_code;
+		$this->ma->ans_score = 0;
 		$this->ma->insert();
 		echo json_encode(true);
 	}

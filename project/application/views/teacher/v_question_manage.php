@@ -86,14 +86,20 @@
                     // start loop foreach display case's data on table
                     json_data.rs_question.forEach(function(element) {
                         let status = '';
-                        (element.q_status == 0) ? status = 'ไม่ใช้งาน': status = 'ใช้งาน';
-                        table.append($('<tr>')
-                            .append($('<td>').append("<center>" + i++ + "</center>"))
-                            .append($('<td>').append(element.q_name))
-                            .append($('<td>').append("<center>" + element.q_ca_name + "</center>"))
-                            .append($('<td>').append("<center>" + status + "</center>"))
-                            .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
-                        )
+                        if (element.q_status == 0) {
+                            status = 'ไม่ใช้งาน';
+                        } else if (element.q_status == 1) {
+                            status = 'ใช้งาน';
+                        }
+                        if (element.q_status != 2) {
+                            table.append($('<tr>')
+                                .append($('<td>').append("<center>" + i++ + "</center>"))
+                                .append($('<td>').append(element.q_name))
+                                .append($('<td>').append("<center>" + element.q_ca_name + "</center>"))
+                                .append($('<td>').append("<center>" + status + "</center>"))
+                                .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
+                            )
+                        }
                     })
                     // end loop foreach display case's data on table
                 } else {
@@ -110,11 +116,12 @@
         let url = "<?php echo site_url(); ?>/Question_manage_controller/load_v_edit/"
         // link to url and sent parameter
         window.location.href = url + q_id
-   
+
     }
 
-    function question_delete(q_id) {
-            swal({
+    function question_delete(q_id="") {
+        // console.log(q_id)
+        swal({
             title: "คุณต้องการลบข้อมูลใช่หรือไม่?",
             text: "ข้อมูลของคุณจะสูญหาย!",
             type: "warning",
@@ -123,23 +130,23 @@
             confirmButtonText: "ยืนยัน",
             closeOnConfirm: false,
             cancelButtonText: 'ยกเลิก'
-            }, function(result){
-             if (!result) return;
-                $.ajax({
-                        type:"POST",
-                        url:"<?php echo site_url() . "/Question_manage_controller/question_delete_data/" ?>",
-                        data: {
-                            id:q_id
-                        },
-                        dataType:'JSON',
-                        success: function(result){
-                            swal("เรียบร้อย!", "ระบบทำการลบข้อมูลเรียบร้อยแล้ว!", "success");
-                            data_table();
-                        },
-                        error: function(xhr, ajaxOptions, thrownError){
-                            swal("ล้มเหลว!", "ระบบไม่สามารถทำการลบข้อมูลได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง", "error");
-                        }
-                });
+        }, function(result) {
+            if (!result) return;
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url() . "/Question_manage_controller/question_delete_data/" ?>",
+                data: {
+                    id: q_id
+                },
+                dataType: 'JSON',
+                success: function(result) {
+                    swal("เรียบร้อย!", "ระบบทำการลบข้อมูลเรียบร้อยแล้ว!", "success");
+                    data_table();
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    swal("ล้มเหลว!", "ระบบไม่สามารถทำการลบข้อมูลได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง", "error");
+                }
             });
+        });
     }
 </script>

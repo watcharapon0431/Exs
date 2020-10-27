@@ -11,6 +11,7 @@ class Da_question extends CI_Model
 	public $q_level;
 	public $q_ca_id;
 	public $q_create_user_id;
+	public $q_code;
 
 	function __construct()
 	{
@@ -18,6 +19,7 @@ class Da_question extends CI_Model
 	}
 
 	function insert($subq)
+	// function insert()
 	{
 		require 'vendor/autoload.php';
 		$client = new MongoDB\Client("mongodb://localhost:27017");
@@ -27,10 +29,11 @@ class Da_question extends CI_Model
 			'q_description' => $this->q_description,
 			'q_seq' => $this->q_seq,
 			'q_status' => $this->q_status,
-			'q_ca_id' => $this->q_ca_id,
+			'q_ca_name' => $this->q_ca_id,
 			'q_level' => $this->q_level,
 			'q_create_user_id' => $this->q_create_user_id,
-			'q_sub_q' => $subq
+			'q_sub_q' => $subq,
+			'q_code' => $this->q_code
 		));
 		// $sql = "INSERT INTO `question` (q_name, q_description, q_seq, q_status, q_ca_id,q_level,q_create_user_id)
 		// 		VALUES (?, ?, ? , ?, ?, ? ,?)";
