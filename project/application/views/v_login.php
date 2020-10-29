@@ -75,7 +75,7 @@
                 if (json_data.check) {
                     swal({
                         title: 'เข้าสู่ระบบสำเร็จ',
-                        text: 'สวัสดีคุณ ' + json_data.user[0].user_fname + ' ' + json_data.user[0].user_lname,
+                        text: 'สวัสดีคุณ ' + json_data.user.user_fname + ' ' + json_data.user.user_lname,
                         type: 'success',
                         showConfirmButton: false,
                         timer: 1500

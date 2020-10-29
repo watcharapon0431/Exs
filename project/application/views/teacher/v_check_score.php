@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <br>
-        <!-- <?php print_r($rs_a)?> -->
+        <!-- <?php print_r($rs_a) ?> -->
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -45,24 +45,24 @@
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
                             <div class="col-md-12">
-                                <textarea id="Ans" cols="220"  disabled value="sadas" rows="10"><?php echo  $rs_a[0]->ans_description;?></textarea>
+                                <textarea id="Ans" cols="220" disabled value="sadas" rows="10"><?php echo  $rs_a[0]->ans_description; ?></textarea>
                             </div>
                             <div class="col-md-12">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-2" style="text-align: center;">
-                                <br>
-                                <!-- ----------------------- start ยกเลิก submit ----------------------- -->
-                                <button class="btn btn-default waves-effect waves-light" onclick="history.back();"><span class="btn-label"><i class="fa fa-times"></i></span>ยกเลิก</button>
-                                <!-- ----------------------- End ยกเลิก submit ----------------------- -->
+                                <div class="col-md-4"></div>
+                                <div class="col-md-2" style="text-align: center;">
+                                    <br>
+                                    <!-- ----------------------- start ยกเลิก submit ----------------------- -->
+                                    <button class="btn btn-default waves-effect waves-light" onclick="history.back();"><span class="btn-label"><i class="fa fa-times"></i></span>ยกเลิก</button>
+                                    <!-- ----------------------- End ยกเลิก submit ----------------------- -->
+                                </div>
+                                <div class="col-md-2" style="text-align: center;">
+                                    <br>
+                                    <!-- ----------------------- start ส่งข้อมูล input ----------------------- -->
+                                    <button class="btn btn-success waves-effect waves-light" onclick="check_score()"><span class="btn-label"><i class="fa fa-save"></i></span>บันทึก</button>
+                                    <!-- ----------------------- End ส่งข้อมูล input ----------------------- -->
+                                </div>
+                                <div class="col-md-4"></div>
                             </div>
-                            <div class="col-md-2" style="text-align: center;">
-                                <br>
-                                <!-- ----------------------- start ส่งข้อมูล input ----------------------- -->
-                                <button class="btn btn-success waves-effect waves-light" onclick="check_score()"><span class="btn-label"><i class="fa fa-save"></i></span>บันทึก</button>
-                                <!-- ----------------------- End ส่งข้อมูล input ----------------------- -->
-                            </div>
-                            <div class="col-md-4"></div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -102,26 +102,26 @@
                 if (json_data.rs_sq != 0) {
                     let i = 1
                     // start loop foreach display case's data on table
-                  
+
                     let score = 0;
-                    let index=1;
+                    let index = 1;
                     let new_score_no = 0;
                     json_data.rs_sq.forEach(function(element) {
                         table.append($('<tr>')
                             .append($('<td>').append("<center>" + i++ + "</center>"))
                             .append($('<td>').append(element.sq_description))
                             .append($('<td>').append("<center>" + element.sq_score + "</center>"))
-                            .append($('<td>').append("<input type='text' name='score' id='score_"+index+
-                                "' placeholder='"+element.sq_score+
-                                "'> "))  
+                            .append($('<td>').append("<input type='text' name='score' id='score_" + index +
+                                "' placeholder='" + element.sq_score +
+                                "'> "))
                         )
-                      
+
                         score += parseInt(element.sq_score);
                         new_score_no = parseInt($('#total_count_score').val()) + 1
                         $('#total_count_score').val(new_score_no)
-                        index+=1;
+                        index += 1;
                     })
-                    table.append($('<tr>').append('<td colspan="2"><center>รวม</center></td><td><center>'+score+' คะแนน</center></td><td id="sum_score"><center>0 คะแนน</center></td>'))
+                    table.append($('<tr>').append('<td colspan="2"><center>รวม</center></td><td><center>' + score + ' คะแนน</center></td><td id="sum_score"><center>0 คะแนน</center></td>'))
                     // end loop foreach display case's data on table
                 } else {
                     let text_no_data = '<center><b>ไม่มีเกณฑ์คะแนนแบบฝึกหัด</b></center>'
@@ -136,50 +136,47 @@
     function check_score() {
         let ans_description = $("#Ans").val()
         let count = $('#total_count_score').val()
-            let i
-            let score = 0;
-            for (i = 1; i <= count; i++) {
-                score += parseInt($('#score_'+i).val())
-            }
-            // alert(score)
-            $('#sum_score').text(score+" คะแนน")
-            let id = <?php echo  $rs_a[0]->ans_id;?>;
+        let i
+        let score = 0;
+        for (i = 1; i <= count; i++) {
+            score += parseInt($('#score_' + i).val())
+        }
+        // alert(score)
+        $('#sum_score').text(score + " คะแนน")
+        let id = <?php echo  $rs_a[0]->ans_id; ?>;
         $.ajax({
             type: "POST",
             url: "<?php echo site_url() . "/Ans_controller/ans_check_score/" ?>",
             data: {
-                'score':score,
-                'id':id
+                'score': score,
+                'id': id
             },
             dataType: 'JSON',
             success: function(json_data) {
                 if (json_data) {
-    						new PNotify({
-    							title: 'เพิ่มคะแนนสำเร็จ',
-    							text: 'ข้อสอบของนักเรียนถูกตรวจแล้ว ',
-    							type: 'success',
-    							icon: 'ti ti-ckeck',
-    							delay: 5000
-    						})
-    						// set time to exit to view v_report.php
-    						setTimeout(function() {
-    							let location = "<?php echo site_url() . "/Exs_controller/load_v_check_ans"; ?>";
-    							window.location.href = location;
-    						}, 1000);
-    						// insert fail show alert
-    					} else {
-    						new PNotify({
-    							title: 'เพิ่มคะแนนไม่สำเร็จ',
-    							text: 'ระบบไม่สามารถบันทึกข้อมูลได้ ',
-    							type: 'error',
-    							icon: 'ti ti-close',
-    							delay: 5000
-    						})
-    					}
+                    new PNotify({
+                        title: 'เพิ่มคะแนนสำเร็จ',
+                        text: 'ข้อสอบของนักเรียนถูกตรวจแล้ว ',
+                        type: 'success',
+                        icon: 'ti ti-ckeck',
+                        delay: 5000
+                    })
+                    // set time to exit to view v_report.php
+                    setTimeout(function() {
+                        let location = "<?php echo site_url() . "/Exs_controller/load_v_check_ans"; ?>";
+                        window.location.href = location;
+                    }, 1000);
+                    // insert fail show alert
+                } else {
+                    new PNotify({
+                        title: 'เพิ่มคะแนนไม่สำเร็จ',
+                        text: 'ระบบไม่สามารถบันทึกข้อมูลได้ ',
+                        type: 'error',
+                        icon: 'ti ti-close',
+                        delay: 5000
+                    })
+                }
             }
         })
     }
 </script>
-
-
-
