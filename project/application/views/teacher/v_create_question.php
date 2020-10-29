@@ -134,7 +134,7 @@
                 'level_id': level_id,
                 'subq_name': subq_name,
                 'score': score,
-                'code':code
+                'code': code
             },
             dataType: 'JSON',
             success: function(result) {
@@ -211,7 +211,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="col-md-12">ภาษา : <span class="help"> *</span></label>
+                                    <label class="col-md-12">หมวดหมู่ : <span class="help"> *</span></label>
                                     <div class="col-md-12">
                                         <select class="form-control" id="language_id">
                                             <option value="" selected disabled style="display:none">- เลือกหมวดหมู่ที่ต้องการ -</option>
@@ -233,15 +233,20 @@
                                     <div class="col-md-12">
                                         <select class="form-control" id="level_id" onchange="check_level();">
                                             <option value="" selected disabled style="display:none">- เลือกความยากที่ต้องการ -</option>
-                                            <?php
-                                            /*start call level infomation form case_controller*/
-                                            for ($i = 1; $i <= 5; $i++) {
-                                            ?>
+                                            <!-- <?php
+                                                    /*start call level infomation form case_controller*/
+                                                    for ($i = 1; $i <= 5; $i++) {
+                                                    ?>
                                                 <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                             <?php
-                                            }
-                                            /*end call level infomation form case_controller*/
-                                            ?>
+                                                    }
+                                                    /*end call level infomation form case_controller*/
+                                            ?> -->
+                                            <option value="ง่าย">ง่าย</option>
+                                            <option value="ง่ายมาก">ง่ายมาก</option>
+                                            <option value="ปานกลาง">ปานกลาง</option>
+                                            <option value="ยาก">ยาก</option>
+                                            <option value="ยากมาก">ยากมาก</option>
                                         </select>
                                         <span style="color:red;">
                                             <p for="" id="validate_level_id"></p>
@@ -268,7 +273,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="case_subq">
-                                            <div class="subq">
+                                            <div class="subq col-md-12">
                                                 <div class="col-md-9">
                                                     <br>
                                                     <input type="text" id="create_subq" class="form-control" placeholder="เกณฑ์คะแนน...">
@@ -291,7 +296,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-8">โค้ดคำตอบ : <span class="help"> *</span></label>
                                     <div class="col-md-12">

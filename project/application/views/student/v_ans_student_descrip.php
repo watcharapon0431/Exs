@@ -42,7 +42,7 @@
                                                 <div class="panel-wrapper collapse in">
                                                     <div class="panel-body">
                                                         <div class="col-md-12">
-                                                            <textarea id="Ans" cols="220" rows="10"></textarea>
+                                                            <textarea id="Ans" class="col-md-12"rows="10"></textarea>
                                                             <span style="color:red;">
                                                                 <p for="" id="validate_Ans"></p>
                                                             </span>
@@ -84,7 +84,7 @@
                         type: "POST",
                         url: "<?php echo site_url() . "/Ans_controller/ans_sup_q_table/" ?>",
                         data: {
-                            'q_id': <?php echo $rs_q[0][0] ?>
+                            'q_id': "<?php echo $rs_q[0][0] ?>"
                         },
                         dataType: 'JSON',
                         success: function(json_data) {
@@ -127,7 +127,7 @@
                             data: {
                                 'ans_description': ans_description,
                                 'ans_status': 0,
-                                'ans_q_id': <?php echo $rs_q[0][0] ?>,
+                                'ans_q_id': "<?php echo $rs_q[0][0] ?>"
                             },
                             dataType: 'JSON',
                             success: function(json_data) {

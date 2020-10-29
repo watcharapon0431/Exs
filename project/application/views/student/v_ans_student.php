@@ -24,7 +24,7 @@
                                     <tr>
                                         <th style="text-align:center; width: 15%"">ลำดับ</th>
                                         <th style=" text-align:center; width: 40%">ชื่อแบบทดสอบ</th>
-                                        <th style="text-align:center; width: 25%"">ภาษา</th>
+                                        <th style="text-align:center; width: 25%"">หมวดหมู่</th>
                                         <th style=" text-align:center; width: 20%"">ระดับความยาก</th>
                                         <!-- <th style=" text-align:center; width: 10%"">คะแนน</th> -->
                                     </tr>
@@ -67,6 +67,15 @@
                 let url = "<?php echo site_url() . "/Ans_controller/load_v_ans_student_descrip/" ?>"
                 // link to url and sent parameter
                 window.location.href = url + q_id
+                // console.log(new MongoId(q_id))
+                
+                // $.ajax({
+                //     type: "POST",
+                //     url: "<?php echo site_url() . "/Ans_controller/load_v_ans_student_descrip/" ?>",
+                //     data: {'q_id' : q_id},
+                //     dataType: 'JSON'
+                    
+                // })
             }
         })
         // end when click at row on table for display v_detail_report

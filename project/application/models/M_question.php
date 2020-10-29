@@ -4,37 +4,35 @@ require_once(dirname(__FILE__) . "/Da_question.php");
 
 class M_question extends Da_question
 {
-	function get_by_user_id()
+	function get_all_question()
 	{
-
 		require 'vendor/autoload.php';
 		$client = new MongoDB\Client("mongodb://localhost:27017");
 		$db = $client->exsdb;
-		// $check = $db->question->find(
-		// 	['q_create_user_id' => $this->q_create_user_id]
-		// );
-			$result = $db->questions->find(array('q_create_user_id' =>  $this->q_create_user_id));
-			// $result = iterator_to_array($result);
-			// $user_following = array();
-			// foreach($result as $entry){
-			// 	$user_following[] = $entry['user'];
-			// }
-			// $result = $db->tweets->find(array('authorId' => array('$in' => $user_following) ));
-			// $recent_tweets = iterator_to_array($result);
-			return $result;
-		
-	
 
+		$data = $db->questions->find(array(
+			 'q_status' => 1
+		));
+		return $data;
+	}
 
+	function get_by_user_id()
+	{
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
 
-
-
-
-
-
-
-
-
+		$data = $db->questions->find(array(
+			'q_create_user_id' => $this->q_create_user_id
+		));
+		// $result = iterator_to_array($result);
+		// $user_following = array();
+		// foreach($result as $entry){
+		// 	$user_following[] = $entry['user'];
+		// }
+		// $result = $db->tweets->find(array('authorId' => array('$in' => $user_following) ));
+		// $recent_tweets = iterator_to_array($result);
+		return $data;
 
 		// foreach ($check as $restaurant) {
 		// 	var_dump($restaurant);
@@ -44,14 +42,14 @@ class M_question extends Da_question
 
 		// $sql = "SELECT q_id, q_name, q_description, q_seq, q_status, q_ca_id, ca.ca_name as q_ca_name, 
 		// 		CASE
-    	// 			WHEN q_level = 1 THEN 'ง่ายมาก'
-    	// 			WHEN q_level = 2 THEN 'ง่าย'
-    	// 			WHEN q_level = 3 THEN 'ปานกลาง'
-    	// 			WHEN q_level = 4 THEN 'ยาก'
-    	// 			WHEN q_level = 5 THEN 'ยากมาก'
+		// 			WHEN q_level = 1 THEN 'ง่ายมาก'
+		// 			WHEN q_level = 2 THEN 'ง่าย'
+		// 			WHEN q_level = 3 THEN 'ปานกลาง'
+		// 			WHEN q_level = 4 THEN 'ยาก'
+		// 			WHEN q_level = 5 THEN 'ยากมาก'
 		// 		END as q_level_name
 		// 		FROM `question` as q
-        //         LEFT JOIN category as ca ON ca.ca_id = q.q_ca_id
+		//         LEFT JOIN category as ca ON ca.ca_id = q.q_ca_id
 		// 		WHERE q_create_user_id=? AND q_status!=2";
 		// return $check;
 	}
@@ -72,15 +70,25 @@ class M_question extends Da_question
 		return $this->db->query($sql, array($this->q_name));
 	}
 
-	function get_name_by_id()
+	function get_by_id()
 	{
-		$sql = "SELECT q_name, q_description 
-				FROM `question`
-				WHERE q_id=?";
-		return $this->db->query($sql, array($this->q_id));
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
+
+		$data = $db->questions->find(array(
+			'_id' => $this->q_id
+		));
+		// print_r($data);
+		return $data;
+		// $sql = "SELECT q_name, q_description 
+		// 		FROM `question`
+		// 		WHERE q_id=?";
+		// return $this->db->query($sql, array($this->q_id));
 	}
 
-	function update_status($id){
+	function update_status($id)
+	{
 		// require 'vendor/autoload.php';
 		// $client = new MongoDB\Client("mongodb://localhost:27017");
 		// $db = $client->exsdb;
@@ -91,10 +99,10 @@ class M_question extends Da_question
 		$sql = "UPDATE question 
 				SET q_status = ?
 				WHERE q_id = ?";
-		return $this->db->query($sql,array($this->q_status,$id));
+		return $this->db->query($sql, array($this->q_status, $id));
 		// return $check;
 	}
-	
+
 	function get_data_by_id()
 	{
 		$sql = "SELECT *,category.ca_name,sup_question.sq_description,sup_question.sq_score
@@ -107,11 +115,11 @@ class M_question extends Da_question
 		return $this->db->query($sql, array($this->q_id));
 	}
 	function edit()
-	{ 
+	{
 		$sql = "UPDATE `question`
 		SET	q_name=?, q_description=?, q_ca_id=?,q_level = ?,q_create_user_id = ?
 		WHERE q_id=? ";
-		$this->db->query($sql, array($this->q_name, $this->q_description, $this->q_ca_id,$this->q_level,$this->q_create_user_id,$this->q_id));
+		$this->db->query($sql, array($this->q_name, $this->q_description, $this->q_ca_id, $this->q_level, $this->q_create_user_id, $this->q_id));
 	}
 
 	function get_ca_id_by_id()

@@ -7,6 +7,15 @@ class M_anser extends Da_anser
 
     function get_all_by_id()
 	{
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
+		$data = $db->users->findOne(array(
+			'user_username' => $this->user_username,
+			'user_password' => $this->user_password
+        ));
+		return $data;
+		
 		$sql = "SELECT * 
 				FROM `anser`
 				WHERE ans_id=?";
@@ -41,4 +50,7 @@ class M_anser extends Da_anser
 		$query = $this->db->query($sql);
 		return $query;
 	}
+
+
+
 }

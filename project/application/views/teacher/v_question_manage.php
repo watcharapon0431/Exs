@@ -33,7 +33,7 @@
                                     <tr>
                                         <th style="text-align:center; width: 10%"">ลำดับ</th>
                                         <th style=" text-align:center; width: 40%">เรื่อง</th>
-                                        <th style="text-align:center; width: 15%"">วิชา</th>
+                                        <th style="text-align:center; width: 15%"">หมวดหมู่</th>
                                         <th style=" text-align:center; width: 15%"">สถานะ</th>
                                         <th style="text-align:center; width: 20%"">ดำเนินการ</th>
                                     </tr>

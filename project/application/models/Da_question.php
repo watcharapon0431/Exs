@@ -9,7 +9,7 @@ class Da_question extends CI_Model
 	public $q_seq;
 	public $q_status;
 	public $q_level;
-	public $q_ca_id;
+	public $q_category;
 	public $q_create_user_id;
 	public $q_code;
 
@@ -27,9 +27,8 @@ class Da_question extends CI_Model
 		$db->questions->insertOne(array(
 			'q_name' => $this->q_name,
 			'q_description' => $this->q_description,
-			'q_seq' => $this->q_seq,
 			'q_status' => $this->q_status,
-			'q_ca_name' => $this->q_ca_id,
+			'q_category' => $this->q_category,
 			'q_level' => $this->q_level,
 			'q_create_user_id' => $this->q_create_user_id,
 			'q_sub_q' => $subq,

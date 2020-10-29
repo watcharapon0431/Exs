@@ -7,7 +7,7 @@ class M_user extends Da_user
     function get_by_username(){
         require 'vendor/autoload.php';
 		$client = new MongoDB\Client("mongodb://localhost:27017");
-		$db = $client->exs;
+		$db = $client->exsdb;
 		$data = $db->users->findOne(array(
 			'user_username' => $this->user_username,
 			'user_password' => $this->user_password
