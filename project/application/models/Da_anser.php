@@ -14,10 +14,21 @@ class Da_anser extends CI_Model {
 	}
 
 	function insert() {
-		$sql = "INSERT INTO `anser` (ans_description, ans_score, ans_status, ans_q_id, ans_user_id )
-				VALUES (?, ?, ?, ?, ?)";
-		$this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_status, $this->ans_q_id, $this->ans_user_id ));
-		$this->last_insert_id = $this->db->insert_id();
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
+		$db->ansers->insertOne(array(
+			'ans_description' => $this->ans_description,
+			'ans_status' => $this->ans_status,
+			'ans_score' => $this->ans_score,
+			'ans_q_id' => $this->ans_q_id,
+			'ans_user_id' => $this->ans_user_id
+		));
+
+		// $sql = "INSERT INTO `anser` (ans_description, ans_score, ans_status, ans_q_id, ans_user_id )
+		// 		VALUES (?, ?, ?, ?, ?)";
+		// $this->db->query($sql, array($this->ans_description, $this->ans_score, $this->ans_status, $this->ans_q_id, $this->ans_user_id ));
+		// $this->last_insert_id = $this->db->insert_id();
 	}
 	
 	function update() {

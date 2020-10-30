@@ -126,7 +126,6 @@
                             url: "<?php echo site_url() . "/Ans_controller/create_ans_student/" ?>",
                             data: {
                                 'ans_description': ans_description,
-                                'ans_status': 0,
                                 'ans_q_id': "<?php echo $rs_q[0][0] ?>"
                             },
                             dataType: 'JSON',

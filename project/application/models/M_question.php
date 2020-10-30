@@ -89,18 +89,18 @@ class M_question extends Da_question
 
 	function update_status($id)
 	{
-		// require 'vendor/autoload.php';
-		// $client = new MongoDB\Client("mongodb://localhost:27017");
-		// $db = $client->exsdb;
-		// $check = $db->question->updateOne(
-		// 	['q_id' => "$id"],
-		// 	['$set' => ['q_status' => '2']]
-		// );
-		$sql = "UPDATE question 
-				SET q_status = ?
-				WHERE q_id = ?";
-		return $this->db->query($sql, array($this->q_status, $id));
-		// return $check;
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
+		$check = $db->questions->updateOne(
+			['_id' => $id],
+			['$set' => ['q_status' => 2]]
+		);
+		// $sql = "UPDATE question 
+		// 		SET q_status = ?
+		// 		WHERE q_id = ?";
+		// return $this->db->query($sql, array($this->q_status, $id));
+		return $check;
 	}
 
 	function get_data_by_id()

@@ -115,10 +115,19 @@ class Ans_controller extends Exs_controller
 
 	function create_ans_student()
 	{
+		$this->load->model('M_question', 'mq');
 		$this->load->model('M_anser', 'ma');
 		$this->ma->ans_description = $this->input->post('ans_description');
-		$this->ma->ans_status = $this->input->post('ans_status');
-		$this->ma->ans_q_id = $this->input->post('ans_q_id');
+		$this->ma->ans_status = 0;
+		$id = $this->input->post('ans_q_id');
+		$rs_temp = $this->mq->get_all_question();
+		foreach ($rs_temp as $row) {
+			if ((string)$row->_id == $id) {
+				$id = $row->_id;
+				break;
+			}
+		}
+		$this->ma->ans_q_id = $id;
 		$this->ma->ans_user_id = $this->session->case_code;
 		$this->ma->ans_score = 0;
 		$this->ma->insert();

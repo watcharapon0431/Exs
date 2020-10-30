@@ -184,8 +184,8 @@ class Question_manage_controller extends Exs_controller
 					// 'q_seq' => $row->q_seq,
 					'q_status' => $row->q_status,
 					'q_ca_name' => $row->q_category,
-					'btn_edit' => '<button id="btn_edit" onclick="question_edit(' . $row->_id . ')"  type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></button>',
-					'btn_delete' => '<button id="btn-delete" onclick="question_delete(' . $row->_id . ')"  type="button" class="btn btn-danger btn-circle" title="ลบ"><i class="fa fa-minus-circle "></i></button>',
+					'btn_edit' => '<button id="btn_edit" onclick="question_edit(' . (string)$row->_id . ')"  type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></button>',
+					'btn_delete' => '<button id="btn-delete" onclick="question_delete(' . (string)$row->_id . ')"  type="button" class="btn btn-danger btn-circle" title="ลบ"><i class="fa fa-minus-circle "></i></button>',
 				)
 			);
 			// end set array_question with html and css for view
@@ -203,6 +203,13 @@ class Question_manage_controller extends Exs_controller
 	{
 		$id = $this->input->post('id');
 		$this->load->model('M_question', 'mq');
+		$rs_temp = $this->mq->get_all_question();
+		foreach ($rs_temp as $row) {
+			if ((string)$row->_id == $id) {
+				$id = $row->_id;
+				break;
+			}
+		}
 		$this->mq->q_status = 2;
 		$this->mq->update_status($id);
 		// $result = $this->mq->update_status($id);

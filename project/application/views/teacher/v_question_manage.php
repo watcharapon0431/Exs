@@ -119,8 +119,8 @@
 
     }
 
-    function question_delete(q_id="") {
-        // console.log(q_id)
+    function question_delete(q_id) {
+        console.log(q_id)
         swal({
             title: "คุณต้องการลบข้อมูลใช่หรือไม่?",
             text: "ข้อมูลของคุณจะสูญหาย!",
@@ -136,7 +136,7 @@
                 type: "POST",
                 url: "<?php echo site_url() . "/Question_manage_controller/question_delete_data/" ?>",
                 data: {
-                    id: q_id
+                    'id' : q_id
                 },
                 dataType: 'JSON',
                 success: function(result) {
