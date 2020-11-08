@@ -24,7 +24,7 @@
                                     <tr>
                                         <th style="text-align:center; width: 10%"">ลำดับ</th>
                                         <th style="text-align:center; width: 30%">แบบฝึกหัด</th>
-                                        <th style="text-align:center; width: 15%"">วิชา</th>
+                                        <th style="text-align:center; width: 15%"">หมวดหมู่</th>
                                         <th style="text-align:center; width: 15%"">ชื่อ</th>
                                         <th style="text-align:center; width: 15%"">สถานะ</th>
                                         <th style="text-align:center; width: 15%"">คะแนน</th>

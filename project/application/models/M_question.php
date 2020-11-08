@@ -23,7 +23,8 @@ class M_question extends Da_question
 		$db = $client->exsdb;
 
 		$data = $db->questions->find(array(
-			'q_create_user_id' => $this->q_create_user_id
+			'q_create_user_id' => $this->q_create_user_id,
+			'q_status' => 1
 		));
 		return $data;
 
@@ -103,10 +104,17 @@ class M_question extends Da_question
 	}
 	function edit()
 	{
-		$sql = "UPDATE `question`
-		SET	q_name=?, q_description=?, q_ca_id=?,q_level = ?,q_create_user_id = ?
-		WHERE q_id=? ";
-		$this->db->query($sql, array($this->q_name, $this->q_description, $this->q_ca_id, $this->q_level, $this->q_create_user_id, $this->q_id));
+		require 'vendor/autoload.php';
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$db = $client->exsdb;
+		$db->questions->updateOne(
+			['_id' => $this->mq->q_id],
+			['$set' => ['q_name' => $this->mq->q_name, 'q_description' => $this->mq->q_description, 'q_category' => $this->mq->q_ca_id, 'q_level' => $this->mq->q_level]]
+		);
+		// $sql = "UPDATE `question`
+		// SET	q_name=?, q_description=?, q_ca_id=?,q_level = ?,q_create_user_id = ?
+		// WHERE q_id=? ";
+		// $this->db->query($sql, array($this->q_name, $this->q_description, $this->q_ca_id, $this->q_level, $this->q_create_user_id, $this->q_id));
 	}
 
 	function get_ca_id_by_id()
