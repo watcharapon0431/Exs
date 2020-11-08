@@ -99,6 +99,8 @@
                                 .append($('<td>').append("<center>" + status + "</center>"))
                                 .append($('<td>').append("<center>" + element.btn_edit + ' ' + element.btn_delete + "</center>"))
                             )
+                            // console.log(element.btn_edit)
+                            // console.log(element.btn_delete)
                         }
                     })
                     // end loop foreach display case's data on table
@@ -112,7 +114,7 @@
     }
 
     function question_edit(q_id) {
-
+        // console.log(q_id)
         let url = "<?php echo site_url(); ?>/Question_manage_controller/load_v_edit/"
         // link to url and sent parameter
         window.location.href = url + q_id
@@ -120,7 +122,7 @@
     }
 
     function question_delete(q_id) {
-        console.log(q_id)
+        // console.log(q_id)
         swal({
             title: "คุณต้องการลบข้อมูลใช่หรือไม่?",
             text: "ข้อมูลของคุณจะสูญหาย!",

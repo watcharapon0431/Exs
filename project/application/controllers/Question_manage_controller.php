@@ -73,20 +73,33 @@ class Question_manage_controller extends Exs_controller
 	function check_ans_score($id)
 	{
 		$this->load->model('M_anser', 'ma');
-		$this->ma->ans_id = $id;
-		$result = $this->ma->get_all_by_id()->result();
+		$rs_temp = $this->ma->get_answer();
+		foreach ($rs_temp as $row) {
+			if ((string)$row->_id == $id) {
+				$id_temp = $row->_id;
+				break;
+			}
+		}
+		$this->ma->ans_id = $id_temp;
+		$rs_ans = $this->ma->get_all_by_id();
+		// print_r($this->ma->ans_id);
 		$this->load->model('M_question', 'mq');
-		$this->mq->q_id = $result[0]->ans_q_id;
-		// $q_result = $this->mq->get_name_by_id()->result();
-		// $data['rs_q'] = $q_result;
-		$data['rs_a'] = $result;
-		// $this->output_student('teacher/v_check_score',$data);
-		// $this->load->model('M_question', 'mq');
-		// $this->mq->q_id = $id;
-		$name = ($this->mq->get_name_by_id()->result())[0]->q_name;
-		$description = ($this->mq->get_name_by_id()->result())[0]->q_description;
+		foreach ($rs_ans as $row) {
+			$this->mq->q_id = $row->ans_q_id;
+			$description = $row->ans_description;
+			$a_id = (string)$row->_id;
+		}
+		$rs_q = $this->mq->get_by_id();
+		foreach ($rs_q as $row) {
+			$q_name = $row->q_name;
+			$q_description = $row->q_description;
+			$q_id = (string)$row->_id;
+		}
+		$array_a = array();
+		array_push($array_a, array($description,$a_id));
 		$array_q = array();
-		array_push($array_q, array($result[0]->ans_q_id, $name, $description));
+		array_push($array_q, array((string)$q_id, $q_name, $q_description));
+		$data['rs_a'] = $array_a;
 		$data['rs_q'] = $array_q;
 		$this->output('teacher/v_check_score', $data);
 	}
@@ -180,12 +193,14 @@ class Question_manage_controller extends Exs_controller
 			array_push(
 				$array_question,
 				array(
+					// 'q_name' => (string)$row->_id,
 					'q_name' => $row->q_name,
 					// 'q_seq' => $row->q_seq,
 					'q_status' => $row->q_status,
 					'q_ca_name' => $row->q_category,
-					'btn_edit' => '<button id="btn_edit" onclick="question_edit(' . (string)$row->_id . ')"  type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></button>',
-					'btn_delete' => '<button id="btn-delete" onclick="question_delete(' . (string)$row->_id . ')"  type="button" class="btn btn-danger btn-circle" title="ลบ"><i class="fa fa-minus-circle "></i></button>',
+					// 'btn_edit' => '<button id="btn_edit" onclick="question_edit("' . $row->_id . '")"  type="button" class="btn btn-warning btn-circle" title="แก้ไข"><i class="fa fa-pencil "></i></button>',
+					'btn_edit' => "<button id='btn_edit' onclick='question_edit('" . (string)$row->_id . "')'  type='button' class='btn btn-warning btn-circle' title='แก้ไข'><i class='fa fa-pencil '></i></button>",
+					'btn_delete' => '<button id="btn-delete" onclick="question_delete("' . $row->_id . '")"  type="button" class="btn btn-danger btn-circle" title="ลบ"><i class="fa fa-minus-circle "></i></button>',
 				)
 			);
 			// end set array_question with html and css for view

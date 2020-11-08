@@ -22,8 +22,8 @@
                             <table id="report_table" class="table table-striped dataTable no-footer display" role="grid" aria-describedby="myTable_info">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center; width: 5%"">ลำดับ</th>
-                                        <th style="text-align:center; width: 35%">แบบฝึกหัด</th>
+                                        <th style="text-align:center; width: 10%"">ลำดับ</th>
+                                        <th style="text-align:center; width: 30%">แบบฝึกหัด</th>
                                         <th style="text-align:center; width: 15%"">วิชา</th>
                                         <th style="text-align:center; width: 15%"">ชื่อ</th>
                                         <th style="text-align:center; width: 15%"">สถานะ</th>
@@ -101,15 +101,15 @@
                     // start loop foreach display case's data on table
                     json_data.rs_all.forEach(function(element) {
                         let score;
-                        (element.ans_score != null) ? score = element.ans_score : score = 0; 
+                        (element.ans_status != '1') ? status = 'ยังไม่ตรวจ' : status = 'ตรวจแล้ว'; 
                         table.append($('<tr>')
                             .append($('<td hidden>').append("<center>" + element.ans_id + "</center>"))
                             .append($('<td>').append("<center>" + i++ + "</center>"))
-                            .append($('<td>').append(element.q_name))
-                            .append($('<td>').append("<center>" + element.ca_name + "</center>"))
-                            .append($('<td>').append("<center>" + element.user_fname + "</center>"))
-                            .append($('<td>').append("<center>" + element.status + "</center>"))
-                            .append($('<td>').append("<center>" + score + "</center>"))
+                            .append($('<td>').append(element.ans_q_name))
+                            .append($('<td>').append("<center>" + element.ans_q_category + "</center>"))
+                            .append($('<td>').append("<center>" + element.ans_user_fname + "</center>"))
+                            .append($('<td>').append("<center>" + status + "</center>"))
+                            .append($('<td>').append("<center>" + element.ans_score + "</center>"))
                             // .append($('<td>').append("<center>" + element.score + "</center>"))
                         )
                     })

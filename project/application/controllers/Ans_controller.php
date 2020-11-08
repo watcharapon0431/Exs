@@ -47,9 +47,10 @@ class Ans_controller extends Exs_controller
 		foreach ($rs_q as $row) {
 			$name = $row->q_name;
 			$description = $row->q_description;
+			$q_category = $row->q_category;
 		}
 		$array_q = array();
-		array_push($array_q, array((string)$id, $name, $description));
+		array_push($array_q, array((string)$id, $name, $description, $q_category));
 		$this->load->model('M_sup_question', 'msq');
 		$this->msq->sq_q_id = $id;
 		$data['rs_sub'] = $this->msq->get_by_question_id();
@@ -62,7 +63,14 @@ class Ans_controller extends Exs_controller
 		$id = $this->input->post("id");
 		$score = $this->input->post("score");
 		$this->load->model('M_anser', 'ma');
-		$this->ma->ans_id = $id;
+		$rs_temp = $this->ma->get_answer();
+		foreach ($rs_temp as $row) {
+			if ((string)$row->_id == $id) {
+				$temp_id = $row->_id;
+				break;
+			}
+		}
+		$this->ma->ans_id = $temp_id;
 		$this->ma->ans_score = $score;
 		$this->ma->ans_status = 1;
 		$this->ma->check_score();
@@ -72,7 +80,22 @@ class Ans_controller extends Exs_controller
 	function table_data_ans()
 	{
 		$this->load->model('M_anser', 'ma');
-		$data['rs_all'] = $this->ma->get_answer()->result();
+		$rs_ans = $this->ma->get_answer();
+		$array_ans = array();
+		foreach ($rs_ans as $row) {
+			array_push(
+				$array_ans,
+				array(
+					'ans_id' => (string)$row->_id,
+					'ans_q_name' => $row->ans_q_name,
+					'ans_q_category' => $row->ans_q_category,
+					'ans_user_fname' => $row->ans_user_fname,
+					'ans_status' => $row->ans_status,
+					'ans_score' => $row->ans_score,
+				)
+			);
+		};
+		$data['rs_all'] = $array_ans;
 		echo json_encode($data);
 	}
 
@@ -90,24 +113,19 @@ class Ans_controller extends Exs_controller
 		}
 		$this->msq->sq_q_id = $id;
 		$rs_sub = $this->msq->get_by_question_id();
-		// print_r($rs_sub);
-		// die();
-		$i = 1;
+		$i = 0;
 		$array_sq = array();
 		foreach ($rs_sub as $row) {
-			array_push(
-				$array_sq,
-				array(
-					// 'sq_description' => $row->q_sup->q_sup_1->descrip,
-					// 'sq_score' => $row->q_sup->q_sup_1->score
-					// 'sq_description' => $row->q_sup_q,
-					// 'sq_score' => $row->q_sup->q_sup_q
-				)
-			);
+			for ($i = 0; $i < sizeOf($row['q_sub_q']); $i++) {
+				array_push(
+					$array_sq,
+					array(
+						'sq_description' => $row['q_sub_q'][$i][0],
+						'sq_score' => $row['q_sub_q'][$i][1]
+					)
+				);
+			}
 		};
-		// print_r($array_sq);
-		// die();
-		// Json's data sent back to Ajax form
 		$data['rs_sq'] = $array_sq;
 		// echo json back to ajax form
 		echo json_encode($data);
@@ -118,6 +136,8 @@ class Ans_controller extends Exs_controller
 		$this->load->model('M_question', 'mq');
 		$this->load->model('M_anser', 'ma');
 		$this->ma->ans_description = $this->input->post('ans_description');
+		$this->ma->ans_q_name = $this->input->post('ans_q_name');
+		$this->ma->ans_q_category = $this->input->post('ans_q_category');
 		$this->ma->ans_status = 0;
 		$id = $this->input->post('ans_q_id');
 		$rs_temp = $this->mq->get_all_question();
@@ -129,6 +149,8 @@ class Ans_controller extends Exs_controller
 		}
 		$this->ma->ans_q_id = $id;
 		$this->ma->ans_user_id = $this->session->case_code;
+		$this->ma->ans_user_fname = $this->session->case_fname;
+		$this->ma->ans_user_lname = $this->session->case_lname;
 		$this->ma->ans_score = 0;
 		$this->ma->insert();
 		echo json_encode(true);

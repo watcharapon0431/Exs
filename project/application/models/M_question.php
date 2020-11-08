@@ -11,7 +11,7 @@ class M_question extends Da_question
 		$db = $client->exsdb;
 
 		$data = $db->questions->find(array(
-			 'q_status' => 1
+			'q_status' => 1
 		));
 		return $data;
 	}
@@ -25,20 +25,7 @@ class M_question extends Da_question
 		$data = $db->questions->find(array(
 			'q_create_user_id' => $this->q_create_user_id
 		));
-		// $result = iterator_to_array($result);
-		// $user_following = array();
-		// foreach($result as $entry){
-		// 	$user_following[] = $entry['user'];
-		// }
-		// $result = $db->tweets->find(array('authorId' => array('$in' => $user_following) ));
-		// $recent_tweets = iterator_to_array($result);
 		return $data;
-
-		// foreach ($check as $restaurant) {
-		// 	var_dump($restaurant);
-		//  };
-
-		// print_r($check);
 
 		// $sql = "SELECT q_id, q_name, q_description, q_seq, q_status, q_ca_id, ca.ca_name as q_ca_name, 
 		// 		CASE

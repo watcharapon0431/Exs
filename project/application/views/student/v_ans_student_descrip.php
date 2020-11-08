@@ -88,7 +88,7 @@
                         },
                         dataType: 'JSON',
                         success: function(json_data) {
-                            // console.log(json_data)
+                            console.log(json_data)
                             if (json_data.rs_sq != 0) {
                                 let i = 1
                                 // start loop foreach display case's data on table
@@ -126,6 +126,8 @@
                             url: "<?php echo site_url() . "/Ans_controller/create_ans_student/" ?>",
                             data: {
                                 'ans_description': ans_description,
+                                'ans_q_name': "<?php echo $rs_q[0][1]; ?>",
+                                'ans_q_category': "<?php echo $rs_q[0][3]; ?>",
                                 'ans_q_id': "<?php echo $rs_q[0][0] ?>"
                             },
                             dataType: 'JSON',
