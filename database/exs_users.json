@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "5f9932046ecbcb08c397515b"
+  },
+  "user_username": "61160006",
+  "user_password": "61160006",
+  "user_fname": "อลงกรณ์",
+  "user_lname": "ทวีวงค์",
+  "user_position_name": "นักเรียน"
+},{
+  "_id": {
+    "$oid": "5f9932d28861cb3508610941"
+  },
+  "user_username": "61160073",
+  "user_password": "61160073",
+  "user_fname": "วัชรพล",
+  "user_lname": "วิเชียรฉาย",
+  "user_position_name": "นักเรียน"
+},{
+  "_id": {
+    "$oid": "5f9932ee8861cb3508610942"
+  },
+  "user_username": "61160074",
+  "user_password": "61160074",
+  "user_fname": "วิชภัทร์",
+  "user_lname": "หาญเหี้ยม",
+  "user_position_name": "นักเรียน"
+},{
+  "_id": {
+    "$oid": "5f9932f08861cb3508610943"
+  },
+  "user_username": "61160176",
+  "user_password": "61160176",
+  "user_fname": "ณัฐปคัลภ์",
+  "user_lname": "ลิลา",
+  "user_position_name": "นักเรียน"
+},{
+  "_id": {
+    "$oid": "5f9932f18861cb3508610944"
+  },
+  "user_username": "61160285",
+  "user_password": "61160285",
+  "user_fname": "เตชินี",
+  "user_lname": "ตึกโพธิ์",
+  "user_position_name": "นักเรียน"
+},{
+  "_id": {
+    "$oid": "5f9932f38861cb3508610945"
+  },
+  "user_username": "61160296",
+  "user_password": "61160296",
+  "user_fname": "อภิสิทธิ์",
+  "user_lname": "แก้วการุณ",
+  "user_position_name": "นักเรียน"
+},{
+  "_id": {
+    "$oid": "5f9932f48861cb3508610946"
+  },
+  "user_username": "teacher",
+  "user_password": "1234",
+  "user_fname": "วันทนา",
+  "user_lname": "ศรีสมบูรณ์",
+  "user_position_name": "อาจารย์"
+}]

@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "5fa6399d9b0e0000de0011cb"
+  },
+  "ans_description": "testCode",
+  "ans_status": 1,
+  "ans_score": "6",
+  "ans_q_id": {
+    "$oid": "5fa624369b0e0000de0011c4"
+  },
+  "ans_q_name": "Test-1",
+  "ans_q_category": "Insert",
+  "ans_user_id": {
+    "$oid": "5f9932d28861cb3508610941"
+  },
+  "ans_user_fname": "วัชรพล",
+  "ans_user_lname": "วิเชียรฉาย"
+},{
+  "_id": {
+    "$oid": "5fa64af79b0e0000de0011cc"
+  },
+  "ans_description": "55555",
+  "ans_status": 0,
+  "ans_score": 0,
+  "ans_q_id": {
+    "$oid": "5f9a4ee11e050000ff0051c3"
+  },
+  "ans_q_name": "ทดสอบการ Insert ข้อมูล",
+  "ans_q_category": "Insert",
+  "ans_user_id": {
+    "$oid": "5f9932d28861cb3508610941"
+  },
+  "ans_user_fname": "วัชรพล",
+  "ans_user_lname": "วิเชียรฉาย"
+},{
+  "_id": {
+    "$oid": "5faa1bda3649000095005189"
+  },
+  "ans_description": "ส่งคำตอบ",
+  "ans_status": 1,
+  "ans_score": "15",
+  "ans_q_id": {
+    "$oid": "5faa1bac3649000095005187"
+  },
+  "ans_q_name": "mongo test insert",
+  "ans_q_category": "Insert",
+  "ans_user_id": {
+    "$oid": "5f9932d28861cb3508610941"
+  },
+  "ans_user_fname": "วัชรพล",
+  "ans_user_lname": "วิเชียรฉาย"
+}]

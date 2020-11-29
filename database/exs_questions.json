@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "5f9a4ee11e050000ff0051c3"
+  },
+  "q_name": "ทดสอบการ Insert ข้อมูล",
+  "q_description": "จงเขียนโปรแกรมตามโจทย์ที่กำหนด",
+  "q_status": 1,
+  "q_category": "Insert",
+  "q_level": "ง่าย",
+  "q_create_user_id": {
+    "$oid": "5f9932f48861cb3508610946"
+  },
+  "q_sub_q": [
+    [
+      "ตรงตามที่กำหนด",
+      "10"
+    ],
+    [
+      "แสดงผลถูกต้อง",
+      "5"
+    ]
+  ],
+  "q_code": "ทดสอบ"
+},{
+  "_id": {
+    "$oid": "5fa624369b0e0000de0011c4"
+  },
+  "q_name": "Test-1",
+  "q_description": "จงบราๆๆๆ",
+  "q_status": 1,
+  "q_category": "Insert",
+  "q_level": "ง่าย",
+  "q_create_user_id": {
+    "$oid": "5f9932f48861cb3508610946"
+  },
+  "q_sub_q": [
+    [
+      "Testscore-1",
+      "1"
+    ],
+    [
+      "Testscore-2",
+      "2"
+    ],
+    [
+      "Testscore-3",
+      "3"
+    ]
+  ],
+  "q_code": "TestCode"
+},{
+  "_id": {
+    "$oid": "5faa17933649000095005184"
+  },
+  "q_name": "mon insert",
+  "q_description": "จงเขียนให้ถูก",
+  "q_status": 1,
+  "q_category": "Insert",
+  "q_level": "ง่าย",
+  "q_create_user_id": {
+    "$oid": "5f9932f48861cb3508610946"
+  },
+  "q_sub_q": [
+    [
+      "คะแนน1",
+      "5"
+    ],
+    [
+      "คะแนน2",
+      "5"
+    ],
+    [
+      "คะแนน3",
+      "5"
+    ]
+  ],
+  "q_code": "code ทดสอบ"
+},{
+  "_id": {
+    "$oid": "5faa1bac3649000095005187"
+  },
+  "q_name": "mongo test insert",
+  "q_description": "จง insert ",
+  "q_status": 1,
+  "q_category": "Insert",
+  "q_level": "ง่าย",
+  "q_create_user_id": {
+    "$oid": "5f9932f48861cb3508610946"
+  },
+  "q_sub_q": [
+    [
+      "คะแนน1",
+      "5"
+    ],
+    [
+      "คะแนน2",
+      "5"
+    ],
+    [
+      "คะแนน3",
+      "10"
+    ]
+  ],
+  "q_code": "code test"
+}]
